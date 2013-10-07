@@ -1,38 +1,186 @@
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Tyler Ehrlich</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js"></script>
-		<style>
-			* { margin: 0; }
-			p { color: white; font-family: Helvetica, sans-serif; font-size: 12px; line-height: 24px; margin-bottom: 22px; -webkit-font-smoothing: antialiased; }
-			a { color: #9a471e; font-weight: bold; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
-			a:hover { color: #990000; border-bottom: 1px solid rgba(255,255,255,1); }
-			#about { width: 375px; margin: 20px 0px 0 30px; }
-			#credit { margin-top: 50px; }
-		</style>
-	</head>	
-    
-	<body>
-		<div id="about">
-			<p>Tyler Ehrlich is currently a junior at <a href="http://cornell.edu">Cornell University</a>, where he studies many things - especially music.  Tyler plays clarinet and bass clarinet in the <a href="http://cuwinds.com">Wind Ensemble</a> and <a href="http://www.arts.cornell.edu/orchestra/">Symphony Orchestra</a>, and studies in the studio of Lenora Schneller.  In January 2012, Tyler accompanied the Wind Ensemble to Costa Rica on their biennial performance and service tour, and he is very much looking forward to return in 2014.</p>
-			
-			<p>Tyler studies conducting with his advisor, <a href="http://music.cornell.edu/people/faculty/?page=cudm/facultyCtrl&amp;action=detail/id=42">Cynthia Johnston Turner</a>, and is the Pit Orchestra Director for the <a href="http://melodramatics.com">Melodramatics Theatre Company, Inc.</a>, Cornell's premier student run musical theatre organization.  This upcoming fall marks his seventh semester with the company, and he is excited to be among the staff to produce <em>Sweeney Todd</em> in November.  Tyler is the teaching assistant for the Cornell University <a href="http://cuwinds.com">Wind Symphony</a>, where he assists in rehearsing and conducting the ensemble in concert.</p>
-			
-			<p>In addition to music, Tyler has taken coursework in the <a href="http://www.cs.cornell.edu">computer science</a> and <a href="http://infosci.cornell.edu">information science</a> departments.  During his freshman and sophomore year, Tyler worked at <a href="http://cit.cornell.edu/">Cornell Information Technologies</a>, both in support and application development.  He has built several web apps for CUWinds and is currently developing an Android Bird Song Player for the <a href="http://birds.cornell.edu">Cornell University Lab of Ornithology</a>.</p>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>tylerehrlich.com</title>
+        <meta name="viewport" content="width=device-width">
 
-			<p>In his free time, Tyler enjoys spending time with his parents <a href="http://imagezone.com">Doug</a> and <a href="http://royalcaninemobilegrooming.com">Ellen</a>, and sisters Blake and Hannah (and brother-in-law <a href="http://ods.org">Jason</a> too!)  He is an amateur photographer, and enjoys sailing and scuba diving.</p>
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
 
-			<p>Contact him through <a href="http://cornell.edu/search/index.cfm?tab=people&amp;netid=tle27&amp;q=tle27">email</a>, <a href="http://twitter.com/tlehrlich">twitter</a>, or <a href="http://facebook.com/tehrlich">facebook</a>.</p>
+        <!-- Custom CSS/JS-->
+        <link rel="stylesheet" href="/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300,100' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/prettyPhoto.css" />
+        <script src="/js/jquery-1.7.1.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.easing.1.3.js"></script>
+        <script src="/js/jquery.flexslider.js"></script>
+        <script src="/js/jquery.custom.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/jquery.quicksand.js"></script>
+    </head>
+    <body>
 
-			<p id="credit"><em>This photo was taken by Seyoun Kim during the Cornell University Wind Symphony Concert on March 4th, 2012.</em></p>
-
+    <div class="masthead">
+      <div class="container">
+      <!-- button for small devices-->
+      <div class="row no-margin"><div class="span12"><div class="hidden-desktop">
+      <a class="btn btn-navbar"  data-toggle="collapse" data-target=".nav-collapse"><span class="icon-align-justify"></span></a></div>
+      <div class="brand"> <a href="/">tylerehrlich.com</a></div>
+      <!-- navigation -->
+      <div class="navbar main-nav"><div class="nav-collapse collapse" >
+         <ul class="nav pull-right ">
+          <li><a href="posts">Blog</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="cv.pdf">CV (PDF)</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+        </div></div></div></div>
+        <!-- end navigation -->
+      </div>
+      <!-- end container -->
+    </div>
+    <!-- end header-->
+                <div id="home">
+	<div class="container clearfix">
+	  <div class="row" id="hero">
+		<!-- mugshot starts-->
+		<div class="span3"><img src="img/tyler.jpeg" alt="headshot" class="img-polaroid" width="230">
 		</div>
-		<script type="text/javascript">
-			$.backstretch("transient.jpg");
-		</script>
-	</body>
+		<!-- mugshot ends --> 
+		<div class="span8">
+			<h3 class="intro">Tyler Ehrlich</h3>
+
+		  <p class="lead headline">I'm a senior at <a href="http://www.cornell.edu">Cornell University</a> interested in music and technology, especially in their intersection.  I study conducting with <a href="http://www.cuwinds.com/about/conductors/cynthia-johnston-turner/">Cynthia Johnston Turner</a>;  we're working to incorporate Google Glass into rehearsal and performance contexts.   This semester, I'm directing the pit orchestras for both <a href="http://www.melodramatics.com"><i>Sweeney Todd</i></a> and <i>Company</i>. Finally, I TA for two courses, <a href="http://courses.cornell.edu/preview_course_nopop.php?catoid=18&coid=240774">Conducting</a> and <a href="http://courses.cornell.edu/preview_course_nopop.php?catoid=18&coid=239856">Introductory Design and Programming for the Web</a>.
+		  </p>
+		  <p class="lead headline">In my free time, I enjoy photography, sailing, and scuba diving.
+		  </p>
+		</div>
+	  </div>
+	  <!-- end --> 
+	
+	<!-- gallery/work section starts -->
+	  <div class="page-work" id="work">
+		<div class="page-heading">
+			<h1>Projects</h1>
+		</div>
+		<div class="row">
+		  <div class="span12 gallery">
+			<!-- sorting menu starts -->
+			<ul id="filterOptions" class="gal-filters clearfix">
+			  <li><a href="#" class="all">All</a></li>
+			  <li><a href="#" class="conducting">Conducting</a></li>
+			  <li><a href="#" class="piano">Piano</a></li>
+			  <li><a href="#" class="clarinet">Clarinet</a></li>
+			  <li><a href="#" class="programming">Programming</a></li>
+			  <li class="last"><a href="#" class="photography">Photography</a></li>
+			</ul>
+			<!-- sorting menu ends -->  
+
+			<!-- gallery starts -->
+			<div class="row clearfix">
+			  <ul class="gallery-post-grid holder">
+
+				<li class="span4 gallery-item" data-id="id-1" data-type="programming">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/labofo.jpg" alt=""></a></span>
+								<span class="details"><a href="#">Programming Intern</a>Cornell University Lab of Ornithology</span>
+									</li>
+
+
+				<li class="span4 gallery-item" data-id="id-2" data-type="conducting">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/spellingbee.gif" alt=""></a></span>
+								<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+									</li>
+
+				<li class="span4 gallery-item" data-id="id-3" data-type="conducting piano">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/sa.png" alt=""></a></span>
+								<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+									</li>
+									
+				<li class="span4 gallery-item" data-id="id-4" data-type="conducting">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/rent.png" alt=""></a></span>
+								<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+									</li>
+									
+				<li class="span4 gallery-item" data-id="id-5" data-type="conducting piano">
+					<span class="3col">
+							<img src="img/gallery/bare.png" alt=""></a>
+								</span>
+									<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+										</li>
+										
+				<li class="span4 gallery-item" data-id="id-6" data-type="conducting">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/lw.png" alt=""></a>
+								</span>
+									<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+										</li>
+										
+				<li class="span4 gallery-item" data-id="id-7" data-type="conducting">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/drs.png" alt=""></a>
+								</span>
+									<span class="details"><a href="#">Pit Orchestra Director</a>The Melodramatics Theatre Company, Inc.</span>
+										</li>
+										
+				<li class="span4 gallery-item" data-id="id-8" data-type="programming">
+					<span class="3col">
+						<!--<a href="img/gallery/img1-full.jpg" title="Project Description" data-rel="prettyPhoto" >-->
+							<img src="img/gallery/cit.png" alt=""></a>
+								</span>
+									<span class="details"><a href="#">Application Developer & HelpDesk Supervisor</a>Cornell University Information Technologies</span>
+										</li>
+						
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+</div>
+
+    <!--page footer -->
+  <div class="page-footer" id="footer">
+      <div class="container ">
+<ul class="nav pull-right ">
+          <!--<li><a href="about.php">About</a></li>
+          <li><a href="cv.pdf">CV (PDF)</a></li>
+          <li><a href="contact.php">Contact</a></li>-->
+        </ul>
+        </div>
+      </div> 
+  </div>
+    <!--scripts -->
+ <script type="text/javascript">
+        // Basic FitVids Test
+        $(".container").fitVids();
+        // Custom selector and No-Double-Wrapping Prevention Test
+        $(".container").fitVids({ customSelector: "iframe[src^='http://socialcam.com']"});
+      </script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <!--Google map - add your details here -->
+     <script type="text/javascript">
+        $(function() {
+            $('#map_canvas').gmap({ 'center': '42.450093,-76.483469','scrollwheel':false});
+            $('#map_canvas').gmap('option', 'mapTypeId', google.maps.MapTypeId.ROADMAP);
+$('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': '42.450093,-76.483469' });
+            $('#map_canvas').gmap('option', 'zoom', 16);
+            });
+    </script>  
+  </body>
 </html>
