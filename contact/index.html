@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="/css/syntax.css">
 
         <!-- Custom CSS/JS-->
-        <link rel="stylesheet" href="/css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300,100' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/bootstrap-responsive.css">
@@ -19,13 +18,11 @@
         <script src="/js/jquery-1.7.1.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/jquery.easing.1.3.js"></script>
-        <script src="/js/jquery.flexslider.js"></script>
         <script src="/js/jquery.custom.js"></script>
-        <script src="/js/jquery.fitvids.js"></script>
         <script src="/js/jquery.quicksand.js"></script>
     </head>
     <body>
-
+  <div class="wrapper">
     <div class="masthead">
       <div class="container">
       <!-- button for small devices-->
@@ -35,10 +32,10 @@
       <!-- navigation -->
       <div class="navbar main-nav"><div class="nav-collapse collapse" >
          <ul class="nav pull-right ">
-          <li><a href="posts">Blog</a></li>
-          <li><a href="about">About</a></li>
-          <li><a href="cv.pdf">CV (PDF)</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li><a href="/posts">Blog</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/cv.pdf">CV (PDF)</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
         </div></div></div></div>
         <!-- end navigation -->
@@ -46,45 +43,65 @@
       <!-- end container -->
     </div>
     <!-- end header-->
-                	  <div class="page-contact" id="contact">
-		<div class="container">
-		  <div class="page-heading-contact">
-				<h3 class="intro">Contact</h3>
-		</div>
-		  <div class="row">
-			<div class="span6"><p class="lead headline"> Although I was born and raised in Northern New Jersey, I'm currently studying at Cornell University in Ithaca, New York.</p>
-		   <!--map -->
-			<div class="map-holder">
-			  <div class="img-polaroid">
-				<div id="map_canvas"></div>
-			  </div>
-			</div> 
-		  </div>
-
-			<!--column 1 ends ends -->
-		  <div class="span6 "> 
-				<h4>Mailing Address</h4>
-			<address>
-			<strong>Tyler Ehrlich</strong><br>
-			101 Lincoln Hall<br>
-			Cornell University, Department of Music<br>
-			Ithaca, New York, 14853<br>
-			</address>
-			<address>
-			<strong>Web Contact</strong><br>
-			Email: <a href="mailto:mail@tylerehrlich.com">mail@tylerehrlich.com</a><br>
-			Twitter: <a href="http://www.twitter.com/tlehrlich">@tlehrlich</a><br>
-			Facebook: <a href="http://www.facebook.com/tehrlich">tehrlich</a><br>
-			LinkedIn: <a href="www.linkedin.com/in/tlehrlich/">tehrlich</a><br>
-			</address>
-			</div>
-		</div>
-	  </div>
+                <div class="container clearfix">
+	<div class="span9">
+		<h3 class="intro">Contact</h3>
+		<p class="meta"></p>
 	</div>
-	</div><!--contact section ends -->
+	<div class="row contact">
+		<div class="span6"><p class="lead headline"> Although I was born and raised in Northern New Jersey, I'm currently studying at Cornell University in Ithaca, New York.</p>
+			<!--map -->
+			<div class="map-holder">
+				<div class="img-polaroid">
+					<div id="map_canvas"></div>
+				</div>
+			</div> 
+		</div>
 
+		<!--column 1 ends ends -->
+		<div class="span4"> 
+			<h4>Mailing Address</h4>
+			<address>
+				<strong>Tyler Ehrlich</strong><br>
+				101 Lincoln Hall<br>
+				Cornell University
+				Department of Music<br>
+				Ithaca, New York, 14853<br>
+			</address>
+			<address>
+				<strong>Web Contact</strong><br>
+				Email: <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'&'+'#'+'1'+'1'+'1'+';'+'&'+
+'#'+'5'+'8'+';'+'t'+'l'+'%'+'&'+'#'+'5'+'4'+';'+'5'+'2'+'7'+'%'+'&'+'#'+'5'+'2'+';'+'0'+'&'+'#'+'9'+
+'9'+';'+'%'+'6'+'F'+'&'+'#'+'1'+'1'+'4'+';'+'n'+'%'+'6'+'5'+'%'+'6'+'C'+'%'+'&'+'#'+'5'+'4'+';'+'C'+
+'&'+'#'+'3'+'7'+';'+'&'+'#'+'5'+'0'+';'+'E'+'&'+'#'+'3'+'7'+';'+'&'+'#'+'5'+'4'+';'+'5'+'%'+'6'+'&'+
+'#'+'5'+'2'+';'+'u'+"'"+'>'+'t'+'&'+'#'+'1'+'0'+'8'+';'+'e'+'2'+'7'+'&'+'#'+'6'+'4'+';'+'c'+'&'+'#'+
+'1'+'1'+'1'+';'+'&'+'#'+'1'+'1'+'4'+';'+'&'+'#'+'1'+'1'+'0'+';'+'e'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+
+'#'+'4'+'6'+';'+'e'+'d'+'u'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript><br>
+				Twitter: <a href="http://www.twitter.com/tlehrlich">@tlehrlich</a><br>
+				Facebook: <a href="http://www.facebook.com/tehrlich">tehrlich</a><br>
+				LinkedIn: <a href="www.linkedin.com/in/tlehrlich/">tehrlich</a><br>
+			</address>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<!--scripts-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<!--Google map -->
+<script type="text/javascript">
+$(function() {
+	$('#map_canvas').gmap({ 'center': '42.450093,-76.483469','scrollwheel':false});
+	$('#map_canvas').gmap('option', 'mapTypeId', google.maps.MapTypeId.ROADMAP);
+	$('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': '42.450093,-76.483469' });
+	$('#map_canvas').gmap('option', 'zoom', 16);
+});
+</script>
+    <div class="push"></div> <!-- Used for Sticky Footer -->
+    </div>
     <!--page footer -->
-  <div class="page-footer" id="footer">
+  <div class="page-footer footer" id="footer">
       <div class="container ">
 <ul class="nav pull-right ">
           <!--<li><a href="about.php">About</a></li>
@@ -94,22 +111,7 @@
         </div>
       </div> 
   </div>
-    <!--scripts -->
- <script type="text/javascript">
-        // Basic FitVids Test
-        $(".container").fitVids();
-        // Custom selector and No-Double-Wrapping Prevention Test
-        $(".container").fitVids({ customSelector: "iframe[src^='http://socialcam.com']"});
-      </script>
+      <!--scripts -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  <!--Google map - add your details here -->
-     <script type="text/javascript">
-        $(function() {
-            $('#map_canvas').gmap({ 'center': '42.450093,-76.483469','scrollwheel':false});
-            $('#map_canvas').gmap('option', 'mapTypeId', google.maps.MapTypeId.ROADMAP);
-$('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': '42.450093,-76.483469' });
-            $('#map_canvas').gmap('option', 'zoom', 16);
-            });
-    </script>  
-  </body>
+</body>
 </html>

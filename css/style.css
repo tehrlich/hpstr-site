@@ -776,3 +776,31 @@ h3 {line-height:30px;}
     margin-left:30px;
     margin-top:20px;
 }
+
+/*Sticky Footer*/
+* {
+margin: 0;
+}
+
+body {
+height: 100%;
+}
+
+html{
+    height:100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+}
+
+.footer, .push {
+    height: 4em;
+}
+
+.contact{
+    margin-left: 0px;
+}

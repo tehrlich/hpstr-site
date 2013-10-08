@@ -1,52 +1,5 @@
 $(document).ready(function() {
 
-/***************************************************
-		FORM VALIDATION JAVASCRIPT
-***************************************************/
-$(document).ready(function() {
-	  if(window.location.hash) {
-      	var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
-      	$.scrollTo( 0, 800 );
-      	} else {
-      }
-
-
-
-	$('form.form-horizontal').submit(function() {
-		$('form.form-horizontal .error').remove();
-		var hasError = false;
-		$('.requiredField').each(function() {
-			if(jQuery.trim($(this).val()) == '') {
-            	var labelText = $(this).prev('label').text();
-            	$(this).parent().append('<span class="error">Please enter your '+labelText+'</span>');
-            	$(this).addClass('inputError');
-            	hasError = true;
-            } else if($(this).hasClass('email')) {
-            	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            	if(!emailReg.test(jQuery.trim($(this).val()))) {
-            		var labelText = $(this).prev('label').text();
-            		$(this).parent().append('<span class="error">Please a valid '+labelText+'</span>');
-            		$(this).addClass('inputError');
-            		hasError = true;
-            	}
-            }
-		});
-		if(!hasError) {
-			$('form.form-horizontal input.submit').fadeOut('normal', function() {
-				$(this).parent().append('');
-			});
-			var formInput = $(this).serialize();
-			$.post($(this).attr('action'),formInput, function(data){
-				$('form.form-horizontal').slideUp("fast", function() {
-					$(this).before('<p class="success">Thank you!<br/>Your email was sent successfully.<br/>We will contact you as soon as possible.</p>');
-				});
-			});
-		}
-
-		return false;
-	});
-});
-
 
 /***************************************************
 		GOOGLE MAP
@@ -82,7 +35,6 @@ $('#filterOptions li a').click(function(e) {
 		},
 		function() {
 			callprettyPhoto();
-			galleryHover();
 	});
 	return false;
 });
