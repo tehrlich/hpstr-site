@@ -1,0 +1,5 @@
+name: tylerehrlich.com
+markdown: redcarpet
+pygments: true
+timezone: America/New_York
+permalink: /:title.html
