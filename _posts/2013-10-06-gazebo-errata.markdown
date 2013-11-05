@@ -4,7 +4,7 @@ title: "Gazebo Dances: Errata"
 date:   2013-10-22
 categories: gazebo errata
 ---
-This is a work in progress, and is updated daily. Check back soon for more additions.
+This is a work in progress, and is updated frequently. Check back soon for more additions.
 <table class = "table table-striped">
 	<thead>
 		<th>Part or Score</th>
@@ -65,6 +65,11 @@ This is a work in progress, and is updated daily. Check back soon for more addit
 		<td>Score and Bassoon????</td>
 		<td>II, m.172</td>
 		<td>Missing articulation on beat 1 &mdash; should be staccato and accent.</td>
+	</tr>
+	<tr>
+		<td>Score</td>
+		<td>III, m.24</td>
+		<td>Trombone 1 & 2 is missing a slur from the "e" of beat 4 to beat 5. The part is correct.</td>
 	</tr>
 	<tr>
 		<td>Tuba</td>

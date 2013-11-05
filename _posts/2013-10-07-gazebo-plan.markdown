@@ -47,89 +47,82 @@ This rehearsal format is based off of Frank Battisti's model in *On Becoming a C
 	<tr>
 		<td>4</td>
 		<td>10/10/13</td>
-		<td>Macro, some Micro</td>
-		<td>Movement 3, 4 and 1</td>
-		<td></td>
+		<td>Micro</td>
+		<td>Start rehearsing movements 3, 4 and 1, pointing out technically challenging spots that ensemble members will need to focus on individually.</td>
+		<td>Now that we were a week into the piece, I wanted to draw folks' attention to problematic spots. This would give them a chance to get correct notes under their fingers before we continued the rehearsal process. In the beginning of the third movement, I gave Nick (oboe soloist) some ideas about shaping his solo, and his use of vibrato. Due to the transparency of the ensemble during his solo, I asked if he would allow his tone to start straight, and then have the vibrato blossom. I believe this imagery worked well, and his sound is greatly improved in the third movement overall. I also showed the clarinets the extremely high (and difficult to tune), soloistic writing in the third movement. In the fourth movement, I pointed out solos in the trumpet, clarinet, and oboe. We also worked on section balance and balance, during the frequent solos in the movement. Unforunately, I ran out of time to continue to movement 1. Although I didn't stay particuarly loyal to only pointing out spots that require individual attenion, I think believe the ensemble becamse more familiar with Gazebo Dances overall.</td>
 	</tr>
 	<tr>
 		<td>5</td>
 		<td>10/17/13</td>
 		<td>Macro, some Micro</td>
 		<td>Start with movement 2 at full tempo, but still beat the 3/4s in three and the 5/4s in five. Work on evoking the different moods of the movement, and draw attention to spots that still need personal practice. Fix all incorrect notes and missed entrances. Rehearse movement 4 slowly, section by section, under tempo. Demonstrate the significant dynamic contrast needed and the importance of listening across the ensemble for a consistent pulse. If time remains, run the movement at the end.</td>
-		<td>This rehearsal was extremely successful. Movement 2 is falling well under the fingers, except several technically difficult passages (for example, flute/piccolo/xylophone mm. 46-50). Cindi suggested I rehearse movement 4 from end to beginning, which worked well. We ran the movement at the end of rehearsal to put all of our work into context. Since this was the rehearsal right before fall break, we ended five minutes early.</td>
+		<td>This rehearsal was extremely successful. Movement 2 is falling well under the fingers, except several technically difficult passages (for example, flute/piccolo/xylophone mm. 46-50). Cindi suggested I rehearse movement 4 from end to beginning, which worked well. We ran the movement at the end of rehearsal to put all of our work into context.</td>
 	</tr>
 	<tr>
 		<td>6</td>
 		<td>10/22/13</td>
 		<td>Very Macro, then Micro</td>
 		<td>Since we are now 1/3 through the rehearsal process, run the entire work, having students note sections that need attention. Write them down, and tackle the larger ones today, and others on Thursday.</td>
-		<td></td>
+		<td>Running the piece exposed a lot errors, ranging from incorrect notes and entrances to very poor ensemble balance and blend. Overall, it was truly difficult for me to not stop and allow errors to go by quickly. After running the piece, I asked everyone what they thought. "Which movements went well? Which need the most work?" Folks were actively listening and critiquing the ensemble, which was great. After that, I polled the ensemble to know which movement they thought was the worst. The consensus was on movement 3; I agreed. We started at the beginning of the third movement, and fixed many incorrect entrances. Just before ending, I told the ensemble that I'll send out the recording shortly so everyone can listen to the full ensemble sound.</td>
 	</tr>
-<!--	<tr>
+	<tr>
 		<td>7</td>
 		<td>10/24/13</td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>Micro</td>
+		<td>Start fixing errors found in the run through in rehearsal 6. Tackle the most problematic movements first; begin with the second half of movement 3, then jump to the beginning of movement 1 for style.</td>
+		<td>It was great to be back in charge, so to speak. Giving up control to the students' ears is very difficult. James Spinazzola and I spoke frequently last semester about the "fix-it" mentality that rehearsal technicians have: spot an error, and fix it. This makes rehearsals usually successful (keeping in mind retention as as problem), but they are usually bland and unenjoyable. We began with the third movement. I asked the clarnetists why m. 42 was a problem; they told me they didn't understand how the feramatas were being conducted. After clarifying this, we ran this section successfully. I could tell the other members of the ensemble were starting to fall asleep, especially the percussion (which is minimal in this movement.) I jumped to the first movement to get more folks involved. We retuned the opening 9th, and worked on unifying the style of the opening. We also reviewed the necessary dynamic shifts needed, especially in sections like mm. 8-14, where the works goes from ff, to mf, mp, f, p, and finally back to f.</td>
 	</tr>
 	<tr>
 		<td>8</td>
-		<td>10/29/13</td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>10/31/13</td>
+		<td>Macro and Micro</td>
+		<td>Today's goal is to finish providing feedback on the movements we worked on in rehearsal 7: the second halves of movements 1 and 3.</td>
+		<td>I began in the middle of the first movement. I frequently don't do this, since I believe providing context is essential. However, since I wanted to focus on the second half, I began at m. 8. The first goal was the unify the tempo shift beginning at m. 124. Although we discussed this rallantado before, it was clear that ensemble members were not expecting it. I asked them to both circle it and idicate the need to check in with me to find our new tempo. We also worked on more important lines in this section: muted trombones at mm. 127-128, and all of the section solis throughout. Since I was short on time, I jumped to movement 3 afterward. We began at m. 10, working on balance in the solo clarinets, unity in brass beginning in m. 13, and intonation in the woodwinds beginning in m. 15. I asked the flutes and piccolo to play senza vibrato in order to better blend with the clarinets. Just before ending the rehearsal, I began to address the brass style (first marked and seperated, and then warm and lush) in m. 30 and onward.</td>
 	</tr>
 	<tr>
 		<td>9</td>
-		<td>10/31/13</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>10</td>
 		<td>11/1/13</td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>Macro, Micro, and Very Micro</td>
+		<td>Start by running the movement 4, focusing on overall balance and blend. Afterwards, start back from the beginning, and fix these issues. Stop when necessary to fix these problems, as well as other style concerns.</td>
+		<td>After running the work, I solicited feedback from the ensemble. Folks agreed that they were very much into their own parts, and didn't focus well on others. Beginning in m.152, brass began to rush considerably. This was caught by many of the woodwinds. I also addressed the quick mute change necessary in the trumpets at m. 145; it was missed each time we ran this movement. After pointing out these mistakes, we began back at the beginning. I let the ensemble play for few dozen bars to hear how siginificant the ensemble sound changes when folks are actively listening. After that, we began to work on micro details, especially in regards to unifying style.</td>
 	</tr>
-	<tr>
-		<td>11</td>
+	<!--<tr>
+		<td>10</td>
 		<td>11/5/13</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>12</td>
+		<td>11</td>
 		<td>11/7/13</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>13</td>
+		<td>12</td>
 		<td>11/12/13</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>14</td>
+		<td>13</td>
 		<td>11/14/13</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>15</td>
+		<td>14</td>
 		<td>11/19/13</td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>16</td>
+		<td>15</td>
 		<td>11/21/13</td>
 		<td></td>
 		<td></td>
