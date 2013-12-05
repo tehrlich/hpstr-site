@@ -4,7 +4,6 @@ title: "Gazebo Dances: Errata"
 date:   2013-10-22
 categories: gazebo errata
 ---
-This is a work in progress, and is updated frequently. Check back soon for more additions.
 <table class = "table table-striped">
 	<thead>
 		<th>Part or Score</th>
@@ -34,7 +33,7 @@ This is a work in progress, and is updated frequently. Check back soon for more 
 	<tr>
 		<td>Score and Percussion</td>
 		<td>I, m.139</td>
-		<td><i>Not entirely errata, but an observation.</i> There is no crash cymbal hit on beat 1, but the orchestral version and the recording by the North Texas Wind Symphony include it.</td>
+		<td><i>Not entirely errata, but an observation.</i> There is no crash cymbal hit on beat 1, but the orchestral version and the recording by the North Texas Wind Symphony includes it.</td>
 	</tr>
 	<tr>
 		<td>Score</td>
@@ -42,14 +41,14 @@ This is a work in progress, and is updated frequently. Check back soon for more 
 		<td>The bells rhythm is difficult to read. It should be an eighth rest, two sixteenth notes on 'G', and an eighth note 'G' on beat 2.</td>
 	</tr>
 	<tr>
-		<td>Score and Parts????</td>
-		<td>II, mm.32-34</td>
-		<td>Inconsistent articulations between parts.</td>
-	</tr>
-	<tr>
 		<td>Score and Bassoon</td>
 		<td>II, m.40</td>
 		<td>Missing crescendo found in both baritone and bass parts.</td>
+	</tr>
+	<tr>
+		<td>Score and Alto Sax 1</td>
+		<td>II, m.83</td>
+		<td>Last eighth note should be E and not C#.</td>
 	</tr>
 	<tr>
 		<td>Percussion</td>
@@ -62,9 +61,14 @@ This is a work in progress, and is updated frequently. Check back soon for more 
 		<td>Key change is missing to E major.</td>
 	</tr>
 	<tr>
-		<td>Score and Bassoon????</td>
+		<td>Score and Bassoon</td>
 		<td>II, m.172</td>
 		<td>Missing articulation on beat 1 &mdash; should be staccato and accent.</td>
+	</tr>
+		<tr>
+		<td>Clarinet 2</td>
+		<td>III, m.4</td>
+		<td>Clarinet 2 has an incorrect tie. Both halves of the measures should have phrase marks, but not ties.</td>
 	</tr>
 	<tr>
 		<td>Score</td>
@@ -74,7 +78,7 @@ This is a work in progress, and is updated frequently. Check back soon for more 
 	<tr>
 		<td>Tuba</td>
 		<td>III, m.24</td>
-		<td>The tuba part has an extra eighth note; the score is correct.???</td>
+		<td>The tuba part has an extra eighth note; the score is correct.</td>
 	</tr>
 	<tr>
 		<td>Tuba</td>
