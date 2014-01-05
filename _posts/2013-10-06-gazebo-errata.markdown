@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Gazebo Dances: Errata"
-date:   2013-10-22
+date:   2013-12-20
 categories: gazebo errata
 ---
 <table class = "table table-striped">
@@ -28,7 +28,7 @@ categories: gazebo errata
 	<tr>
 		<td>Score and Trumpet 2</td>
 		<td>I, m.139</td>
-		<td><i>Not entirely errata, but an observation.</i>Trumpet 1 and 3 are "open", but trumpet 2 is not. The score reminds trumpet 2 at m.135 to be muted, but it seems odd that two thirds of the trumpets would be open on a unison line.</td>
+		<td><i>Not entirely errata, but an observation.</i>Trumpet 1 and 3 are <i>senza sord.</i>, but trumpet 2 is muted. The score reminds trumpet 2 at m.135 to be muted, but it seems odd that two thirds of the trumpets would be open on a unison line.</td>
 	</tr>
 	<tr>
 		<td>Score and Percussion</td>
@@ -48,12 +48,12 @@ categories: gazebo errata
 	<tr>
 		<td>Score and Alto Sax 1</td>
 		<td>II, m.83</td>
-		<td>Last eighth note should be E and not C#.</td>
+		<td>In the alto clarinet cue, the last eighth note should be an E and not a C#.</td>
 	</tr>
 	<tr>
 		<td>Percussion</td>
 		<td>II, m.85</td>
-		<td>Instrument is ambiguous; it should be triangle and not snare drum.</td>
+		<td>Instrument is ambiguous; it should be triangle, not snare drum.</td>
 	</tr>
 	<tr>
 		<td>Flute 1</td>
@@ -88,7 +88,7 @@ categories: gazebo errata
 	<tr>
 		<td>Percussion</td>
 		<td>IV, m.175</td>
-		<td>Measure marking 175 is located in the incorrect spot.</td>
+		<td>Measure marking 175 is located in the incorrect location.</td>
 	</tr>
 	<tr>
 		<td>Score and Percussion</td>

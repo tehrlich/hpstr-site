@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Streaming Photos from Glass</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS/JS-->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300,100' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/prettyPhoto.css" />
+        <link rel="shortcut icon" href="/favicon.ico">
+        <script src="/js/jquery-1.7.1.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.easing.1.3.js"></script>
+        <script src="/js/jquery.custom.js"></script>
+        <script src="/js/jquery.quicksand.js"></script>
+    </head>
+    <body>
+  <div class="wrapper">
+    <div class="masthead">
+      <div class="container">
+      <!-- button for small devices-->
+      <div class="row no-margin"><div class="span12"><div class="hidden-desktop">
+      <a class="btn btn-navbar"  data-toggle="collapse" data-target=".nav-collapse"><span class="icon-align-justify"></span></a></div>
+      <div class="brand"> <a href="/">tylerehrlich.com</a></div>
+      <!-- navigation -->
+      <div class="navbar main-nav"><div class="nav-collapse collapse" >
+         <ul class="nav pull-right ">
+          <li><a href="/posts">Blog</a></li>
+          <!--<li><a href="/about">About</a></li>-->
+          <li><a href="/cv.pdf">CV (PDF)</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        </div></div></div></div>
+        <!-- end navigation -->
+      </div>
+      <!-- end container -->
+    </div>
+    <!-- end header-->
+                <div class="container clearfix">
+	<div class="span12">
+		<h3 class="intro">Streaming Photos from Glass</h3>
+		<p class="meta">01 Dec 2014</p>
+	</div>
+<div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+       	  
+       	  	
+          	<li class="active"><a href="/PhotoStreaming.html"><i class="icon-chevron-right"></i>Streaming Photos from Glass</a></li>
+          	 
+          
+       	  	
+          	<li><a href="/gazebo-errata.html"><i class="icon-chevron-right"></i>Gazebo Dances: Errata</a></li>
+    		
+          
+       	  	
+          	<li><a href="/Sweeney-Todd-Through-Glass.html"><i class="icon-chevron-right"></i>Sweeney Todd Through Glass</a></li>
+    		
+          
+       	  	
+          	<li><a href="/BeatKeeper1.html"><i class="icon-chevron-right"></i>BeatKeeper Version 1.0</a></li>
+    		
+          
+       	  	
+          	<li><a href="/spelling-bee-errata.html"><i class="icon-chevron-right"></i>Spelling Bee: Errata</a></li>
+    		
+          
+       	  	
+          	<li><a href="/gazebo-plan.html"><i class="icon-chevron-right"></i>Gazebo Dances: Rehearsal Schedule</a></li>
+    		
+          
+        </ul>
+      </div>
+      <div class="span9">
+      <p><i>This was originally written for my thesis, available <a href="thesis.pdf">here</a>.</i></p>
+
+<p>One of the original ideas for Dr. Turner&#39;s research was to stream the conductor&#39;s perspective from Glass. Due to the limited power of the device, it is currently not possible to live stream without at least a half of a second of latency. To combat this problem, one idea was to take still images and show them to the audience.</p>
+
+<p>There are two Android applications that are necessary to make this task possible: <a href="https://play.google.com/store/apps/details?id=com.tina.time_lapse">Tina Time-lapse</a> by Wessel Rossing and <a href="https://play.google.com/store/apps/details?id=lutey.FTPServer">FTPServer</a> by Andreas Liebig. Both of these must be sideloaded onto the device. After installing the applications onto a different rooted Android device, one must navigate to <code>/data/app/</code> to find the corresponding APK files. Using ADB&#39;s pull function, they can be transferred to a computer before using ADB to install them on Glass.</p>
+
+<p>“Tina Time-lapse” is an Android application that automatically takes pictures at a user-defined time interval. Other settings allow the user to set the image&#39;s resolution, quality, and location where the photo is saved. After installing the application using ADB, the image is initially distorted: </p>
+
+<p><center><img src="img/pictures.png" alt="distorted images" title="Tina time-lapse preview is not working."></center></p>
+
+<p>This is a <a href="http://stackoverflow.com/questions/19235477/google-glass-preview-image-scrambled-with-new-xe10-release">known error</a> with the release of EX10. After importing the source code into Eclipse, the addition of one line of Java fixes this problem:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">parameters.setPreviewFpsRange(30000, 30000);
+</code></pre></div>
+<p>This is added after the Camera is initialized, in the <code>Recorder</code> class in the package <code>nl.nanatech.b.tinatimelapse</code>. To begin taking photos, one simply selects the second icon: the camera.</p>
+
+<p>Glass will automatically sleep after several seconds of inactivity. This can be changed by manually installing the <code>Settings.apk</code> file, starting the application using ADB, and changing the preference under the Display menu.</p>
+
+<p>Photos can be accessed from a different computer after an FTP Server is configured on Glass. Although there are several applications available to accomplish this task, Andreas Liebig&#39;s “FTPServer” has a setting that is required for the device to be network accessible. There are several network interfaces available through Glass:</p>
+
+<table class = "table table-striped">
+<tr><td>lo</td><td>UP</td><td>127.0.0.1/8</td><td>0x00000049</td><td>00:00:00:00:00:00</td></tr>
+<tr><td>ifb0</td><td>UP</td><td>192.168.167.239/0</td><td>0x000000c3</td><td>86:67:db:e8:XX:XX</td></tr>
+<tr><td>ifb1</td><td>DOWN</td><td>0.0.0.0/0</td><td>0x00000082</td><td>3a:a5:94:8c:XX:XX</td></tr>
+<tr><td>sit0</td><td>DOWN</td><td>0.0.0.0/0</td><td>0x00000080</td><td>00:00:00:00:00:00</td></tr>
+<tr><td>ip6tnl0</td><td>DOWN</td><td>0.0.0.0/0</td><td>0x00000080</td><td>00:00:00:00:00:00</td></tr>
+<tr><td>wlan0</td><td>UP</td><td>192.168.1.113/24</td><td>0x00001043</td><td>f8:8f:ca:24:XX:XX</td></tr>
+<tr><td></td></tr>
+</table>
+
+<p>Only the last interface, <code>wlan0</code>, corresponds to the physical MAC address of the device. Due to an issue with the Glass interface, all FTP servers default to use the <code>ifb0</code> interface. This prevents other clients from finding Glass on the local area network. The application “FTPServer” allows the interface to be manually set, sidestepping this bug.This error has not yet been reported to the Glass developers. I plan on submitting a bug report after I complete more testing in the coming weeks.</p>
+
+<p>Wessel Rossing provided me the source code for  our research with Glass, but as it is not open source, it will not be posted it on Github. The source for “FTPServer” is also not available online, but no modification to the raw source code is necessary for it to work on Glass.</p>
+
+  </div>
+</div>
+</div>
+    <div class="push"></div> <!-- Used for Sticky Footer -->
+    </div>
+    <!--page footer -->
+  <div class="page-footer footer" id="footer">
+      <div class="container ">
+<ul class="nav pull-right ">
+          <!--<li><a href="about.php">About</a></li>
+          <li><a href="cv.pdf">CV (PDF)</a></li>
+          <li><a href="contact.php">Contact</a></li>-->
+        </ul>
+        </div>
+      </div> 
+  </div>
+      <!--scripts -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</body>
+</html>

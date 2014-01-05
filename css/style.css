@@ -185,7 +185,7 @@ blockquote.pull-left { border-left: 5px solid #e0dede; }
 .page-contact { padding: 20px 0 30px 0; }
 
 .page-footer {
-    background: #222;
+    background: #222222;
     padding: 10px  0 0 0;
 }
 
@@ -403,8 +403,17 @@ span.required{
 /***************************************************
 	ABOUT ME
 ***************************************************/
+img.mugshot {
+    margin-top: 20px;
+}
+
 img.cornell {
     margin-top: 120px;
+}
+
+img.conductor{
+    margin-top: 75px;
+    width: 140px;
 }
 
 img.melo{

@@ -3,6 +3,7 @@ layout: post
 title:  "Gazebo Dances: Summary"
 date:   2013-10-08
 categories: gazebo
+published: false
 ---
 
 **Title:** "Gazebo Dances for Band"
