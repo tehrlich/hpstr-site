@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Streaming Photos from Glass"
-date:   2014-12-01
+date:   2014-01-03
 categories: honors glass
 ---
 <i>This was originally written for my thesis, available [here](thesis.pdf).</i>
@@ -16,7 +16,9 @@ There are two Android applications that are necessary to make this task possible
 
 This is a [known error](http://stackoverflow.com/questions/19235477/google-glass-preview-image-scrambled-with-new-xe10-release) with the release of EX10. After importing the source code into Eclipse, the addition of one line of Java fixes this problem:
 
+{% highlight java %}
 	parameters.setPreviewFpsRange(30000, 30000);
+{% endhighlight %}
 
 This is added after the Camera is initialized, in the `Recorder` class in the package `nl.nanatech.b.tinatimelapse`. To begin taking photos, one simply selects the second icon: the camera.
 

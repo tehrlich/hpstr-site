@@ -54,6 +54,10 @@
         <ul class="nav nav-list bs-docs-sidenav">
        	  
        	  	
+          	<li><a href="/scoreviewer.html"><i class="icon-chevron-right"></i>Score Viewer for Glass</a></li>
+    		
+          
+       	  	
           	<li><a href="/photostreaming.html"><i class="icon-chevron-right"></i>Streaming Photos from Glass</a></li>
     		
           
@@ -84,25 +88,44 @@
 
 <p>Cindi and I spent a few hours two weeks ago getting BeatKeeper up and running on Glass. After cloning the repository on my local machine, I imported the app into Eclipse and pushed it to the device. We were immediately presented with something that looks like this:</p>
 
-<p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png"><img class="alignnone size-full wp-image-240" title="beatkeeper1" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png" alt="" width="640" height="360" /></a></p>
+<p><center><p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png"><img class="alignnone size-full wp-image-240" title="beatkeeper1" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png" alt="" width="640" height="360" /></a></p></center></p>
 
 <p>It was quite exciting for us to see a metronome! I swiped forward and back to navigate through the controls; I hit play and a consistent pulse started in my ear. Perfect.</p>
 
 <p>Next thing was making it landscape and more easy to read. I headed into the <code>AndroidManifest.xml</code> file and changed <code>android:screenOrientation="portrait"</code> to <code>android:screenOrientation="landscape"</code>. Now we were presented with something a bit more usable, but the Start button was cut off:</p>
 
-<p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png"><img class="alignnone size-full wp-image-237" title="beatkeeper2" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png" alt="" width="640" height="360" /></a></p>
+<p><center><p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png"><img class="alignnone size-full wp-image-237" title="beatkeeper2" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png" alt="" width="640" height="360" /></a></p></center></p>
 
 <p>This was a great time for me to introduce layout files to Cindi, so I went over the XML and explained how the placement worked. We messed around with the layout and sizing and ended up here:</p>
 
-<p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png"><img class="alignnone size-full wp-image-235" title="beatkeeper" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png" alt="" width="640" height="360" /></a></p>
+<p><center><p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png"><img class="alignnone size-full wp-image-235" title="beatkeeper" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png" alt="" width="640" height="360" /></a></p></center></p>
 
 <p>After our NYC media lunch, I put in a lot of thought about usability. Buttons are appropriate for mobile devices, but not really for Glass. Using the slider and tap gestures are considerably more intuitive and simple. In their <a href="https://developers.google.com/glass/guidelines">usability guidelines</a>, Google writes, &#8220;Glass users expect the technology to be there when they want it and out of the way when they don&#8217;t. Your Glassware should never take precedence over users&#8217; lives.&#8221; Especially in a rehearsal setting, I wanted to design something simple and intuitive.</p>
 
 <p>Here is the first real version of BeatKeeper for Glass:</p>
 
-<p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png"><img class="alignnone size-full wp-image-241" title="beatkeeper3" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png" alt="" width="640" height="360" /></a></p>
+<p><center><p><a href="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png"><img class="alignnone size-full wp-image-241" title="beatkeeper3" src="http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png" alt="" width="640" height="360" /></a></p></center></p>
 
 <p>It&#8217;s simple and easy to read. To adjust the tempo, simply slide your finger on the side of Glass. To start and start the metronome, tap once. All of the gestures are recognized via a <a href="http://developer.android.com/reference/android/view/GestureDetector.html"><code>GestureDetector</code></a>. I&#8217;ve stripped all unnecessary controls from the app. The resulting experience is sleek and straight forward to use.</p>
+
+<p>Here is the source for the <code>GestureDetector</code>.</p>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScroll</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">e1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">e2</span><span class="o">,</span> <span class="kt">float</span> <span class="n">distanceX</span><span class="o">,</span>
+                       <span class="kt">float</span> <span class="n">distanceY</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">&quot;Gesture Example&quot;</span><span class="o">,</span> <span class="s">&quot;onScroll: distanceX:&quot;</span> <span class="o">+</span> <span class="n">distanceX</span> <span class="o">+</span>
+    <span class="s">&quot; distanceY:&quot;</span> <span class="o">+</span> <span class="n">distanceY</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">distanceX</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//determine scrolling direction</span>
+        <span class="n">bpm</span><span class="o">++;</span>
+        <span class="n">TextView</span> <span class="n">bpmText</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bps</span><span class="o">);</span>
+        <span class="n">bpmText</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">bpm</span><span class="o">);</span>
+        <span class="n">metroTask</span><span class="o">.</span><span class="na">setBpm</span><span class="o">(</span><span class="n">bpm</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">distanceX</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">bpm</span><span class="o">--;</span>
+        <span class="n">TextView</span> <span class="n">bpmText</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bps</span><span class="o">);</span>
+        <span class="n">bpmText</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">bpm</span><span class="o">);</span>
+        <span class="n">metroTask</span><span class="o">.</span><span class="na">setBpm</span><span class="o">(</span><span class="n">bpm</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div>
 
 <p><strong><span style="line-height: 1.714285714; font-size: 1rem;">So what&#8217;s next for BeatKeeper for Glass?</span></strong></p>
 
