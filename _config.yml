@@ -7,17 +7,3 @@ analytics :
   provider : google 
   google : 
       tracking_id : 'UA-47023641-1'
-exclude: [1ea944bbcbc958cf929c6996648ab4de867a6385-privatekey.p12]
-jekyll_ga:
-  application_name: pageviewer
-  application_version: 1.0
-  service_account_email: 449482324102-dmpotf8rg0eq0e2hgjtd9npjjucf72hm@developer.gserviceaccount.com
-  key_file: 1ea944bbcbc958cf929c6996648ab4de867a6385-privatekey.p12
-  key_secret: notasecret    # service account private key's password
-  profileID: ga:80834556    # profile ID 
-  start: a year ago 		# Beginning of report
-  end: now                  # End of report
-  metric: ga:pageviews      # Metric code
-  segment:                  # optional
-  filters:                  # optional
-  sort: true                # Sort posts by this metric
