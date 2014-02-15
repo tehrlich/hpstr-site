@@ -3,7 +3,3 @@ markdown: redcarpet
 pygments: true
 timezone: America/New_York
 permalink: /:title.html
-analytics :
-  provider : google 
-  google : 
-      tracking_id : 'UA-47023641-1'

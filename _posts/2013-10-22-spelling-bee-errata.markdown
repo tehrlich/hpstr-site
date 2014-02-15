@@ -4,7 +4,7 @@ title: "Spelling Bee: Errata"
 date:   2013-10-22
 categories: errata
 ---
-This is an errata list for the MTI version of "The 25th Annual Putnam County Spelling Bee."
+Here is an errata list for the MTI version of "The 25th Annual Putnam County Spelling Bee."
 <table class = "table table-striped">
 	<thead>
 		<th>Part or Score</th>

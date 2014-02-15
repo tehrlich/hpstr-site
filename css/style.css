@@ -703,3 +703,11 @@ html{
 .contact{
     margin-left: 0px;
 }
+
+.table tbody tr.instrument td{
+    background-color: #181818;
+}
+
+.instrument{
+    color: white;
+}
