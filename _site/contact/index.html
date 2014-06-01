@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/bootstrap-responsive.css">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/flexslider.css">
         <link rel="stylesheet" href="/css/prettyPhoto.css" />
         <link rel="shortcut icon" href="/favicon.ico">
         <script src="/js/googleanalytics.js"></script>
@@ -22,7 +23,8 @@
         <script src="/js/jquery.easing.1.3.js"></script>
         <script src="/js/jquery.custom.js"></script>
         <script src="/js/jquery.quicksand.js"></script>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="/js/jquery.flexslider.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </head>
     <body>
   <div class="wrapper">
@@ -51,7 +53,7 @@
 		<p class="meta"></p>
 	</div>
 	<div class="row contact">
-		<div class="span6"><p class="lead headline"> Although I was born and raised in Northern New Jersey, I'm currently studying at Cornell University in Ithaca, New York.</p>
+		<div class="span6"><p class="lead headline"> Although I was born and raised in Northern New Jersey, I'm currently studying at the University of Georgia in Athens, Georgia.</p>
 			<!--map -->
 			<div class="map-holder">
 				<div class="img-polaroid">
@@ -65,23 +67,28 @@
 			<h4>Mailing Address</h4>
 			<address>
 				<strong>Tyler Ehrlich</strong><br>
-				101 Lincoln Hall<br>
-				Cornell University
-				Department of Music<br>
-				Ithaca, New York, 14853<br>
+				250 River Road<br>
+				University of Georgia<br>
+				School of Music<br>
+				Athens, GA 30602<br>
 			</address>
 			<address>
 				<strong>Web Contact</strong><br>
-				Email: <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'&'+'#'+'9'+'7'+';'+'i'+'l'+'t'+'&'+'#'+'1'+'1'+'1'+';'+'&'+
-'#'+'5'+'8'+';'+'t'+'l'+'%'+'&'+'#'+'5'+'4'+';'+'5'+'2'+'7'+'%'+'&'+'#'+'5'+'2'+';'+'0'+'&'+'#'+'9'+
-'9'+';'+'%'+'6'+'F'+'&'+'#'+'1'+'1'+'4'+';'+'n'+'%'+'6'+'5'+'%'+'6'+'C'+'%'+'&'+'#'+'5'+'4'+';'+'C'+
-'&'+'#'+'3'+'7'+';'+'&'+'#'+'5'+'0'+';'+'E'+'&'+'#'+'3'+'7'+';'+'&'+'#'+'5'+'4'+';'+'5'+'%'+'6'+'&'+
-'#'+'5'+'2'+';'+'u'+"'"+'>'+'t'+'&'+'#'+'1'+'0'+'8'+';'+'e'+'2'+'7'+'&'+'#'+'6'+'4'+';'+'c'+'&'+'#'+
-'1'+'1'+'1'+';'+'&'+'#'+'1'+'1'+'4'+';'+'&'+'#'+'1'+'1'+'0'+';'+'e'+'&'+'#'+'1'+'0'+'8'+';'+'l'+'&'+
-'#'+'4'+'6'+';'+'e'+'d'+'u'+'<'+'/'+'a'+'>');</script><noscript>[Turn on JavaScript to see the email address]</noscript><br>
+				Email:  <script language=Javascript type=text/javascript>
+<!--
+document.write('<a href="mai');
+document.write('lto');
+document.write(':&#116;&#121;&#108;&#101;&#114;&#108;&#101;&#104;&#114;&#108;&#105;&#99;&#104;');
+document.write('@');
+document.write('&#117;&#103;&#97;&#46;&#101;&#100;&#117;">');
+document.write('&#116;&#121;&#108;&#101;&#114;&#108;&#101;&#104;&#114;&#108;&#105;&#99;&#104;');
+document.write('@');
+document.write('&#117;&#103;&#97;&#46;&#101;&#100;&#117;<\/a>');
+// -->
+</script><noscript>&#116;&#121;&#108;&#101;&#114;&#108;&#101;&#104;&#114;&#108;&#105;&#99;&#104; at 
+&#117;&#103;&#97; dot &#101;&#100;&#117;</noscript><br>
 				Twitter: <a href="http://www.twitter.com/tlehrlich">@tlehrlich</a><br>
 				Facebook: <a href="http://www.facebook.com/tehrlich">tehrlich</a><br>
-				LinkedIn: <a href="http://www.linkedin.com/in/tlehrlich/">tehrlich</a><br>
 			</address>
 		</div>
 	</div>
@@ -94,9 +101,9 @@
 <!--Google map -->
 <script type="text/javascript">
 $(function() {
-	$('#map_canvas').gmap({ 'center': '42.450093,-76.483469','scrollwheel':false});
+	$('#map_canvas').gmap({ 'center': '33.941117,-83.3683562','scrollwheel':false});
 	$('#map_canvas').gmap('option', 'mapTypeId', google.maps.MapTypeId.ROADMAP);
-	$('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': '42.450093,-76.483469' });
+	$('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': '33.941117,-83.3683562' });
 	$('#map_canvas').gmap('option', 'zoom', 16);
 });
 </script>
