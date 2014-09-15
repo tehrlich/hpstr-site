@@ -125,7 +125,7 @@
 
 <p>Here is the source for the <code>GestureDetector</code>.</p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScroll</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">e1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">e2</span><span class="o">,</span> <span class="kt">float</span> <span class="n">distanceX</span><span class="o">,</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScroll</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">e1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">e2</span><span class="o">,</span> <span class="kt">float</span> <span class="n">distanceX</span><span class="o">,</span>
                        <span class="kt">float</span> <span class="n">distanceY</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">&quot;Gesture Example&quot;</span><span class="o">,</span> <span class="s">&quot;onScroll: distanceX:&quot;</span> <span class="o">+</span> <span class="n">distanceX</span> <span class="o">+</span>
     <span class="s">&quot; distanceY:&quot;</span> <span class="o">+</span> <span class="n">distanceY</span><span class="o">);</span>
@@ -134,13 +134,12 @@
         <span class="n">TextView</span> <span class="n">bpmText</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bps</span><span class="o">);</span>
         <span class="n">bpmText</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">bpm</span><span class="o">);</span>
         <span class="n">metroTask</span><span class="o">.</span><span class="na">setBpm</span><span class="o">(</span><span class="n">bpm</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">distanceX</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span> 
+    <span class="o">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">distanceX</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span> 
         <span class="n">bpm</span><span class="o">--;</span>
         <span class="n">TextView</span> <span class="n">bpmText</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bps</span><span class="o">);</span>
         <span class="n">bpmText</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">bpm</span><span class="o">);</span>
         <span class="n">metroTask</span><span class="o">.</span><span class="na">setBpm</span><span class="o">(</span><span class="n">bpm</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</code></pre></div>
+    <span class="o">}</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span></code></pre></div>
 
 <p><strong><span style="line-height: 1.714285714; font-size: 1rem;">So what&#8217;s next for BeatKeeper for Glass?</span></strong></p>
 

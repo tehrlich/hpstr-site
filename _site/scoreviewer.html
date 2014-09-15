@@ -109,7 +109,7 @@
 
 <p>Here is the form that serves the image to the backend:</p>
 
-<div class="highlight"><pre><code class="html"> <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;operation&quot;</span> <span class="na">value=</span><span class="s">&quot;insertItem&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;message&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;imageUrl&quot;</span> <span class="na">value=</span><span class="s">&quot;/static/images/1.jpg&quot;</span><span class="nt">&gt;</span>
@@ -119,12 +119,11 @@
         Insert page 1
         <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;button-icon&quot;</span> <span class="na">src=</span><span class="s">&quot;/static/images/1.jpg&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;/form&gt;</span>
-</code></pre></div>
+    <span class="nt">&lt;/form&gt;</span></code></pre></div>
 
 <p>Here is the backend Python code that processes the HTML form.</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">_insert_item</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_insert_item</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot;Insert a timeline item.&quot;&quot;&quot;</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Inserting timeline item&#39;</span><span class="p">)</span>
 <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
@@ -149,8 +148,7 @@
 <span class="c"># self.mirror_service is initialized in util.auth_required.</span>
 <span class="c"># insert into the timeline</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">mirror_service</span><span class="o">.</span><span class="n">timeline</span><span class="p">()</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">media_body</span><span class="o">=</span><span class="n">media</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span> 
-<span class="k">return</span>  <span class="s">&#39;A timeline item has been inserted.&#39;</span>
-</code></pre></div>
+<span class="k">return</span>  <span class="s">&#39;A timeline item has been inserted.&#39;</span></code></pre></div>
 
 <p>Any user with Glass can navigate to this page and install the score to <i>Armenian Dances</i> on his or her Glass. It is possible to change this, however, using the settings in Google App Engine. One possible improvement for this application would be to bundle the images together. This way, if the user received a notification while they were installing the score, it would not be placed in between the pages in the score. Also, a single send button would be helpful; currently the user needs to click for each page of the score.</p>
 
@@ -161,7 +159,7 @@
 <p>This score only contains time changes and other landmarks that are necessary to conduct the work. If a salient score is used in rehearsal, a full score is necessary to have nearby for reference.</p>
 
 <p>To control page turns, a Bluetooth controller is optional, but recommended. To set this up, the native Android <code>Settings.apk</code> file must be sideloaded on the device. Dan McLaughlin&#39;s provides the file <a href="https://googledrive.com/host/0B3CzS-bH2NyETHNQZC1TbWh4RTQ/Settings.apk">here</a>. This application can then be started with the following command:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">adb shell am start -n com.android.settings/com.android.settings.Settings
+<div class="highlight"><pre><code class="language-text" data-lang="text">adb shell am start -n com.android.settings/com.android.settings.Settings
 </code></pre></div>
 <p>After the control panel displays, it is possible to pair a keyboard or other Bluetooth device. After the pairing process is complete, pages can be navigated with the left and right arrows on the keyboard.</p>
 
