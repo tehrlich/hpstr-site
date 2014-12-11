@@ -1,0 +1,1905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Tyler Ehrlich</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2014-12-08T23:56:04-05:00</updated>
+<id>http://localhost:4000/</id>
+<author>
+  <name>Tyler Ehrlich</name>
+  <uri>http://localhost:4000/</uri>
+  <email>tylerlehrlich@gmail.com</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[Score Viewer 2.0 for Glass]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/glass/Glass-Scoreviewer-2/" />
+  <id>http://localhost:4000/glass/Glass-Scoreviewer-2</id>
+  <published>2014-06-01T00:00:00-04:00</published>
+  <updated>2014-06-01T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;img src=&quot;img/edward.jpg&quot; alt=&quot;Kevin, Cindi, and I all reading music notation from Glass&quot; class=&quot;img-polaroid mugshot&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;*Andre, Cindi, and I all reading music notation from Glass.*&lt;/center&gt;
+
+&lt;p&gt;Last November, we finished the &lt;a href=&quot;https://github.com/tehrlich/scoreviewer&quot;&gt;first version&lt;/a&gt; of the music score viewing application. Built on the &lt;a href=&quot;https://developers.google.com/glass/develop/mirror/index&quot;&gt;Mirror API&lt;/a&gt;, the app pushed a series of cards (what we had as the score of &lt;em&gt;Armenian Dances&lt;/em&gt; by Aram Khachaturian) to Glass. Although functional, the app had a few problems.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Google App Engine (GAE) would occasionally timeout while sending cards to Glass. I didn’t solve this issue fully, but from what I could tell, since we were sending many calls to Glass, the program would stall waiting for a response and terminate. This was far from ideal, and even at GAE’s highest timeout threshold it would still stall on slow applications. A possible fix for this would be to have a different thread responsible for sending the cards, and a loading screen telling the user to wait. Since I knew we were going to start from scratch on this next version, I never implemented this.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The original app sent all different cards, versus stacked in one bundle. If the user received an email or text message while the bundle of score pages was being pushed to his or her Glass, that would be inserted in the middle of the score. Awkward. I was able to fix this by bundling the cards in one stack.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you received new cards while performing, they would take precedence over your score. Turning off wifi and Bluetooth fixed this, but that’s not truly an ideal solution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Controlling the cards was limited to the gestures on the touchpad or through a Bluetooth controller. We used a wireless keyboard to advance pages, but pairing the device was awkward and required a hack to work.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For these reasons, I immediately started using the &lt;a href=&quot;https://developers.google.com/glass/develop/gdk/&quot;&gt;Glass Development Kit (GDK)&lt;/a&gt; to write the next version of the score viewer. Setting up the programming environment for Glass is pretty straightforward and is discussed in the documentation for the GDK.&lt;/p&gt;
+
+&lt;p&gt;At its core, the application is very straightforward. An &lt;a href=&quot;http://developer.android.com/reference/android/widget/ImageView.html&quot;&gt;ImageView&lt;/a&gt; loads up the first page of a score, which is simply a 640x360px image. After a certain event occurs, the next image is loaded. After all are cycled through, the score returns to the first page.&lt;/p&gt;
+
+&lt;p&gt;Here is the cool feature: to advance pages, the user blinks twice while looking at the Glass display. To go to a previous page, the user taps the touchpad once. This decision was a conscious one; tapping the touchpad is faster than swiping back and forth. In order to get this functionality to work, I used Takahiro “Poly” Horikawa’s Eye Gesture Library on Github, available &lt;a href=&quot;github.com/thorikawa/EyeGestureLib&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, how well does it work? Truthfully, quite well. After getting used to looking through or away from Glass, I’m always successful in having the pages advance when they should. Occasionally a “phantom blink” happens, and the page advances before it should. A quick tap brings it back in place. This could be disastrous in live performance, especially if musicians are reading notation off of the device, versus having a conductor use it as a reminder of meter changes and cues. I’ve found that calibrating the winking sensor can greatly reduce phantom blinks. Also, be sure the “wink for photo” setting is enabled in the settings menu before using the app. &lt;/p&gt;
+
+&lt;p&gt;Although a bit messy, the source for the Glass Score Viewer 2.0 is available on Github below. The demo score installed is Khachaturian’s &lt;em&gt;Armenian Dances&lt;/em&gt;. I hope to comment some more of the code and upload a revised version soon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/tehrlich/gdkscoreviewer&quot;&gt;https://github.com/tehrlich/gdkscoreviewer&lt;/a&gt;&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/glass/Glass-Scoreviewer-2/&quot;&gt;Score Viewer 2.0 for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Costa Rica Through Glass]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/glass/costa-rica-through-glass/" />
+  <id>http://localhost:4000/glass/costa-rica-through-glass</id>
+  <published>2014-03-01T00:00:00-05:00</published>
+  <updated>2014-03-01T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;script type=&quot;text/javascript&quot;&gt;
+  $(window)
+    .load(function ()
+  {
+    $(&#39;.flexslider&#39;)
+      .flexslider(
+    {
+      animation: &quot;slide&quot;,
+      slideshow: true,
+      start: function (slider)
+      {
+        $(&#39;body&#39;)
+          .removeClass(&#39;loading&#39;);
+      }
+    });
+  });
+&lt;/script&gt;
+
+&lt;p&gt;Back in January, the Cornell University Wind Ensemble returned to Costa Rica and Panama for its fifth service and performance tour. On this trip, we stopped at music schools throughout both countries, gave lessons (in Spanish), performed concerts, and donated instruments. This was a really wonderful end to my time at Cornell.&lt;/p&gt;
+
+&lt;p&gt;While on the trip, I really wanted to try Word Lens in action. Although I took Spanish for a few years in middle and high school, I am still far from having a real conversation. This app would be super helpful while exploring the cities on our downtime.&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/pZKWW3rzT2Q&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;After a few minutes, I realized a huge oversight: I didn’t have a data connection while traveling. Although there was a lot of wifi coverage in our hotels and hostels, using Word Lens out in the cities wouldn’t work. That was unfortunate.&lt;/p&gt;
+
+&lt;p&gt;Nonetheless, I recorded our musical activities through photos and videos. The first (below) is me leading a clarinet masterclass in Pérez Zeledón, Costa Rica. We worked on the basics: strong tone production, articulation, scales, and the like.&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/er1Wb4qhmvM&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;Here are masterclass recitals in David, Panama. CU Winds worked with these students for about an hour before performing these works.&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/yHgZIo4STg4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;While in David, CJT led a conducting masterclass. Below you can see their conducting and her feedback.&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/F9gFELtCal4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;In San Vito, Costa Rica, the students requested a jazz improvisation workshop. Led by our drummer, Colleen Clark, CU Winds members taught the basics of improv and provided an impromptu concert. Here is &lt;i&gt;Blue Bossa.&lt;/i&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/P7bC93Hf8Nc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+&lt;p&gt;Here are some images I took through Glass while in Costa Rica and Panama.&lt;/p&gt;
+
+&lt;center&gt;&lt;div class=&quot;flexslider&quot;&gt;
+&lt;ul class=&quot;slides img-rounded&quot;&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/1.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Clarinet sectionals before we leave.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/3.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Rehearsals led by CJT.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/3b.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Jonathan looking skeptical of Glass.&lt;/p&gt;&lt;/li&gt; 
+  &lt;li&gt;&lt;img src=&quot;img/costarica/3a.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Simrita and Clara on the bus driving through the countryside.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Bassoons warming up before our opening concert.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/5.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Performing Gandolfi&#39;s &lt;i&gt;Vientos y Tangos.&lt;/i&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/2.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;The clarinet section!&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/6.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;The saxophones!&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;img/costarica/9.jpg&quot; alt=&quot;&quot; /&gt;&lt;p class=&quot;flex-caption&quot;&gt;Our final conducting masterclass in Panama.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/center&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/glass/costa-rica-through-glass/&quot;&gt;Costa Rica Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sweeney Todd: Errata]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/errata/sweeney-todd-errata/" />
+  <id>http://localhost:4000/errata/sweeney-todd-errata</id>
+  <published>2014-02-08T00:00:00-05:00</published>
+  <updated>2014-02-08T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Here is an errata list for the nine-piece orchestration of MTI’s “Sweeney Todd”, sorted by instrument. Thanks to the pit musicians for help in compiling this!&lt;/p&gt;
+
+&lt;p&gt;Other errata are listed &lt;a href=&quot;sweeneyerrata.pdf&quot;&gt;here&lt;/a&gt; and at Brian Demaris’s &lt;a href=&quot;http://operamtblog.blogspot.com/2013/02/sweeney-todd-errata-alternate-9-piece.html&quot;&gt;blog&lt;/a&gt;. There may be overlap from these two sources and the list below. &lt;/p&gt;
+
+&lt;p&gt;Finally, some markings below are not necessarily mistakes, but either thoughtful musical decisions (such as mute choice, or percussion instrument choice when none is provided) or markings to match the full orchestration score that is shipped with the materials. There are still many large discrepancies between the piano/conductor score provided and the individual parts. A handwritten full score of the reduced orchestration is also included in the rental set, but it lacks lyrics and is too illegible to be conducted from.&lt;/p&gt;
+
+&lt;table class=&quot;table table-striped&quot;&gt;
+	&lt;thead&gt;
+		&lt;th&gt;Song Number, Measure&lt;/th&gt;
+		&lt;th&gt;Correction&lt;/th&gt;
+	 &lt;/thead&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Violin&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1, m. 55&lt;/td&gt;
+		&lt;td&gt;4 bars rest, not 3.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1, m. 70&lt;/td&gt;
+		&lt;td&gt;10 bars rest, not 5.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1, m. 151&lt;/td&gt;
+		&lt;td&gt;Decrescendo missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 17&lt;/td&gt;
+		&lt;td&gt;Time signature missing to 3/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 31&lt;/td&gt;
+		&lt;td&gt;Missing caesura at end of the bar.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 39&lt;/td&gt;
+		&lt;td&gt;Missing caesura at end of the bar.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 42&lt;/td&gt;
+		&lt;td&gt;Missing caesura at end of the bar.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, mm. 256-257&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 3&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 72&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 1&lt;/td&gt;
+		&lt;td&gt;There are too many beats in the measure; remove beat 3.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 9&lt;/td&gt;
+		&lt;td&gt;The measure is missing (should be a rest.)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 40&lt;/td&gt;
+		&lt;td&gt;Beat 4 should be C&amp;#9839;, B&amp;#9838;, A&amp;#9839;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10B, m. 3&lt;/td&gt;
+		&lt;td&gt;Tremolo between A&amp;#9837; and B&amp;#9837; (not A&amp;#9837; and C&amp;#9838;.)&lt;/td&gt;
+	&lt;/tr&gt;	
+	&lt;tr&gt;
+		&lt;td&gt;12B, m. 5&lt;/td&gt;
+		&lt;td&gt;The slurs should be the same as m. 3.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 3-4&lt;/td&gt;
+		&lt;td&gt;The safety should occur in mm. 3-4, not mm. 5-6.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 3-4&lt;/td&gt;
+		&lt;td&gt;The safety should occur in mm. 3-4, not mm. 5-6.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 54-55&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 55-56&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;16, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;No repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 1&lt;/td&gt;
+		&lt;td&gt;The safety should occur in m. 1, not m. 2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 33&lt;/td&gt;
+		&lt;td&gt;4 bars of eighth notes, not 5.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 72&lt;/td&gt;
+		&lt;td&gt;C&amp;#9839;, not C&amp;#9838;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 47&lt;/td&gt;
+		&lt;td&gt;C and E&amp;#9837;, not E&amp;#9838; (similar to m. 43).&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 213&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 298&lt;/td&gt;
+		&lt;td&gt;Beat 1 should be E&amp;#9837;, not E&amp;#9838;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, m. 21-24&lt;/td&gt;
+		&lt;td&gt;Safety (over rests) should be here, not mm. 29-30.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 41-42&lt;/td&gt;
+		&lt;td&gt;Vamp missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, m. 20-21&lt;/td&gt;
+		&lt;td&gt;After mm. 20-21 safety, 3 measures should be repeated.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, m. 36-37&lt;/td&gt;
+		&lt;td&gt;No vamp.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, m. 37-37A&lt;/td&gt;
+		&lt;td&gt;Vamp missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, m. 38-39&lt;/td&gt;
+		&lt;td&gt;These two measures are missing; repeat.&lt;/td&gt;
+	&lt;/tr&gt;	
+	&lt;tr&gt;
+		&lt;td&gt;28, m. 69&lt;/td&gt;
+		&lt;td&gt;Pizzicato missing on second eighth note.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;28, m. 70&lt;/td&gt;
+		&lt;td&gt;Slurs should be identical to m. 68.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;28, m. 70&lt;/td&gt;
+		&lt;td&gt;Second eighth note should be pizzicato.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;28, m. 71&lt;/td&gt;
+		&lt;td&gt;Slurs should be identical as m. 68.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29B, mm. 136-137&lt;/td&gt;
+		&lt;td&gt;No repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Cello&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 12&lt;/td&gt;
+		&lt;td&gt;Common time sign is backwards.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;6, m. 20&lt;/td&gt;
+		&lt;td&gt;E&amp;#9837;, not E&amp;#9838;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 26&lt;/td&gt;
+		&lt;td&gt;Second note should be sixteenth, not eighth.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, m. 91&lt;/td&gt;
+		&lt;td&gt;Should be C&amp;#9838;s.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, m. 51&lt;/td&gt;
+		&lt;td&gt;Time signature should be 6/8, not 6/6.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 226&lt;/td&gt;
+		&lt;td&gt;G&amp;#9838;, then G&amp;#9839;, similar to all other measures.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29, m. 4&lt;/td&gt;
+		&lt;td&gt;Should be D&amp;#9839;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Bass&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 22&lt;/td&gt;
+		&lt;td&gt;Change to arco.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 13&lt;/td&gt;
+		&lt;td&gt;Change to arco.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4, m. 1&lt;/td&gt;
+		&lt;td&gt;Time signature should be 3/2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 15&lt;/td&gt;
+		&lt;td&gt;Time signature should be 3/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 39&lt;/td&gt;
+		&lt;td&gt;Time signature should be 3/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 33&lt;/td&gt;
+		&lt;td&gt;Change to arco.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;8, m. 16&lt;/td&gt;
+		&lt;td&gt;F should be G.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, m. 56&lt;/td&gt;
+		&lt;td&gt;Change to pizz.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, m. 91&lt;/td&gt;
+		&lt;td&gt;Change to arco.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, m. 150&lt;/td&gt;
+		&lt;td&gt;Change to arco.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10, m. 77&lt;/td&gt;
+		&lt;td&gt;Change to pizz.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10B, m. 1&lt;/td&gt;
+		&lt;td&gt;Time signature should be 6/8.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;12B, m. 6&lt;/td&gt;
+		&lt;td&gt;Low C whole note missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 2&lt;/td&gt;
+		&lt;td&gt;Add empty measure after safety, remove measure before instrument.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 72-73&lt;/td&gt;
+		&lt;td&gt;Quarter notes should be arco, while beat 2 of m. 73 should be pizz.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 140&lt;/td&gt;
+		&lt;td&gt;Beat 2 should be D, not C.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;20, m. 196&lt;/td&gt;
+		&lt;td&gt;Beat 2 should be D, not C.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27A, m. 3&lt;/td&gt;
+		&lt;td&gt;Time signature should be 6/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29, m. A&lt;/td&gt;
+		&lt;td&gt;Time signature should be 3/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29, m. 1&lt;/td&gt;
+		&lt;td&gt;Time signature should be 6/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, m. 14&lt;/td&gt;
+		&lt;td&gt;Time signature should be 3/8.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Bassoon&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;No additional errors.&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Horn&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 261&lt;/td&gt;
+		&lt;td&gt;Missing caesura.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, mm. 49-51&lt;/td&gt;
+		&lt;td&gt;Missing rit.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 62&lt;/td&gt;
+		&lt;td&gt;Concert G&amp;#9837; is held too long; it should only be one beat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 3&lt;/td&gt;
+		&lt;td&gt;One measure safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;6, mm. A-C&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 72&lt;/td&gt;
+		&lt;td&gt;Vamp should be removed.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;8a, mm. 3-4&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, mm. 33-35&lt;/td&gt;
+		&lt;td&gt;Slur is missing over this line.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10, mm. 1-4&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;15, mm. A-B&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 1&lt;/td&gt;
+		&lt;td&gt;Remove this measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, mm. 3-4&lt;/td&gt;
+		&lt;td&gt;An additional bar of rest is missing between these two measures.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, mm. 327-328&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, mm. 329-330&lt;/td&gt;
+		&lt;td&gt;Remove repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 7&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, mm. 29-30&lt;/td&gt;
+		&lt;td&gt;Remove repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;22, m. 31&lt;/td&gt;
+		&lt;td&gt;Add caesura at the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;25, mm. 1-4&lt;/td&gt;
+		&lt;td&gt;Vamp missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 36-37&lt;/td&gt;
+		&lt;td&gt;Remove repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 38-39&lt;/td&gt;
+		&lt;td&gt;Add vamp.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 39-40&lt;/td&gt;
+		&lt;td&gt;Add two empty measures before mm. 39-40.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29B, mm. 1-4&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Trumpet&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 18&lt;/td&gt;
+		&lt;td&gt;Add caesura at the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 31&lt;/td&gt;
+		&lt;td&gt;Add caesura at the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 39&lt;/td&gt;
+		&lt;td&gt;Add caesura at the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 43&lt;/td&gt;
+		&lt;td&gt;Add caesura at the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 49&lt;/td&gt;
+		&lt;td&gt;Add rit.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 55&lt;/td&gt;
+		&lt;td&gt;Remove caesura.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 3&lt;/td&gt;
+		&lt;td&gt;Add safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 80&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;8A, m. 16&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Add Safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10, mm. 1-4&lt;/td&gt;
+		&lt;td&gt;Remove Safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10, mm. 53&lt;/td&gt;
+		&lt;td&gt;Add caesura.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;10, mm. 60A&lt;/td&gt;
+		&lt;td&gt;Add caesura.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 3-4&lt;/td&gt;
+		&lt;td&gt;Add safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;14, m. 55&lt;/td&gt;
+		&lt;td&gt;Add safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;15, mm. A-B&lt;/td&gt;
+		&lt;td&gt;Remove repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;16, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;16A, mm. 5-10&lt;/td&gt;
+		&lt;td&gt;Remove these measures.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 1&lt;/td&gt;
+		&lt;td&gt;Remove this measures.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, m. 64&lt;/td&gt;
+		&lt;td&gt;Meter change missing to cut time.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 25&lt;/td&gt;
+		&lt;td&gt;Remove fermata.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 117&lt;/td&gt;
+		&lt;td&gt;Con sord. (cup)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 153&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 239&lt;/td&gt;
+		&lt;td&gt;Con sord. (cup)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 337&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, mm. 1-9&lt;/td&gt;
+		&lt;td&gt;Remove the opening nine measures, up until the 3/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, mm. 21-24&lt;/td&gt;
+		&lt;td&gt;Add safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, mm. 29-30&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;22, m. 39&lt;/td&gt;
+		&lt;td&gt;Subito accel.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;22, m. 67&lt;/td&gt;
+		&lt;td&gt;Subito rit.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 53&lt;/td&gt;
+		&lt;td&gt;Ritard begins.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 104&lt;/td&gt;
+		&lt;td&gt;Fermata missing on beat three.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 105&lt;/td&gt;
+		&lt;td&gt;Rit missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 36-37&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 38-39&lt;/td&gt;
+		&lt;td&gt;Add safety plus two silent measures of 2/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27, m. A&lt;/td&gt;
+		&lt;td&gt;Remove repeat.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27, m. 1&lt;/td&gt;
+		&lt;td&gt;Meter should be 3/2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27A, m. 33&lt;/td&gt;
+		&lt;td&gt;L&#39;istesso tempo.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27A, m. 35&lt;/td&gt;
+		&lt;td&gt;If the insert is being used, m. 40 should come directly after m. 35.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;28, m. 6&lt;/td&gt;
+		&lt;td&gt;L&#39;istesso tempo.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29, m. 30&lt;/td&gt;
+		&lt;td&gt;Senza sord.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29, m. 214&lt;/td&gt;
+		&lt;td&gt;Con sord. (straight)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Keyboard&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, m. 256&lt;/td&gt;
+		&lt;td&gt;Missing treble clef sign (bass clef is indicated).&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class=&quot;instrument&quot;&gt;
+		&lt;td&gt;Percussion&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;tr&gt;
+		&lt;td&gt;1, m. 134&lt;/td&gt;
+		&lt;td&gt;Instrument is not labeled on the bottom; it should be bass drum.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;2, mm. 256-257&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 49&lt;/td&gt;
+		&lt;td&gt;Rit. into m. 51.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;3, m. 13&lt;/td&gt;
+		&lt;td&gt;Instrument is not labeled; it should be bells.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;5, m. 3&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, mm. 60-62&lt;/td&gt;
+		&lt;td&gt;Cymbal chokes are missing on beat one of m. 60 and m. 61 and beat two of m. 62.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;7, m. 73&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Safety missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;9, m. 38&lt;/td&gt;
+		&lt;td&gt;Measure is empty; it should be the same as m. 37.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;16A, mm. 5-6&lt;/td&gt;
+		&lt;td&gt;Cut off anywhere in these four measures.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;17, mm. 1-2&lt;/td&gt;
+		&lt;td&gt;The safety should occur in m. 1, not m. 2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, mm. 1-7&lt;/td&gt;
+		&lt;td&gt;Bell hits are followed by the dialogue, cued.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;18, m. 26&lt;/td&gt;
+		&lt;td&gt;The fermata should occur in m. 26, not m. 25.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 35&lt;/td&gt;
+		&lt;td&gt;Caesura is missing from the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;19, m. 150&lt;/td&gt;
+		&lt;td&gt;Time signature is missing to 2/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;21, m. 21&lt;/td&gt;
+		&lt;td&gt;Safety should occur here, not m. 29.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;22, m. 66&lt;/td&gt;
+		&lt;td&gt;Caesura is missing from the end of the measure.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;22A, m. 30&lt;/td&gt;
+		&lt;td&gt;D&amp;#9839; - D&amp;#9838;, not D&amp;#9839; - C&amp;#9839;.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 3&lt;/td&gt;
+		&lt;td&gt;Remove safety.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;23, m. 104&lt;/td&gt;
+		&lt;td&gt;Missing fermata on beat 3.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, m. 36&lt;/td&gt;
+		&lt;td&gt;Continue the roll an additional two measures (two measures are missing).&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;26, mm. 36-41&lt;/td&gt;
+		&lt;td&gt;Vamp missing.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27, m. 1&lt;/td&gt;
+		&lt;td&gt;Instrument is not labeled; should be chimes.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27A, m. 17&lt;/td&gt;
+		&lt;td&gt;Instrument is not labeled; should be tambourine.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;27A, mm. 23-24&lt;/td&gt;
+		&lt;td&gt;Instrument is not labeled; should be bells.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;29B, mm. 1-4&lt;/td&gt;
+		&lt;td&gt;Vamp missing.&lt;/td&gt;
+	&lt;/tr&gt;
+
+
+
+&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/table&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/errata/sweeney-todd-errata/&quot;&gt;Sweeney Todd: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on February 08, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Score Viewer for Glass]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/honors/glass/scoreviewer/" />
+  <id>http://localhost:4000/honors/glass/scoreviewer</id>
+  <published>2014-01-04T00:00:00-05:00</published>
+  <updated>2014-01-04T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;i&gt;This was originally written for my thesis, available &lt;a href=&quot;thesis.pdf&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;After spending weeks looking into Android PDF libraries, the Mirror API seemed like a much more logical choice to use to deploy a musical score. Google supports several programming languages to use with the API: Go, Java, .NET, PHP, Python, and Ruby. Due to curiosity and a fondness for the language, I decided to use Python.&lt;/p&gt;
+
+&lt;p&gt;After downloading the quick start project, I created an application on Google App Engine. Since this application was designed to contain &lt;i&gt;Armenian Dances&lt;/i&gt; by Aram Khachaturian, the application was titled “CUWindsKach” and is accessible at: [http://cuwindskach.appspot.com]. After editing &lt;code&gt;client_secrets.json&lt;/code&gt;, generating a &lt;code&gt;session.secret&lt;/code&gt; file to store session cookies, and editing &lt;code&gt;app.yaml&lt;/code&gt; to include the name of the application, the Python application was ready to deploy.&lt;/p&gt;
+
+&lt;p&gt;Once it was launched, the next step was including the scores. After scanning in the condensed score, I divided it up into 640x360 images, the size of Glass’s display, using Photoshop. A simple form hooked into the Python application to send the image.&lt;/p&gt;
+
+&lt;p&gt;Here is the form that serves the image to the backend:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;operation&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;insertItem&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;message&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;imageUrl&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/static/images/1.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;hidden&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;contentType&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;image/jpeg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btn btn-block&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	    Insert page 1
+	    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;button-icon&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/static/images/1.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is the backend Python code that processes the HTML form.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_insert_item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Insert a timeline item.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Inserting timeline item&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# this is slightly unnecessary, as the two levels are null and default&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;#39;notification&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;level&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;DEFAULT&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# check if it&amp;#39;s just text or if there markup&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;on&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;imageUrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# see if media is present&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startswith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_full_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urlfetch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;media_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deadline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;media&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MediaIoBaseUpload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BytesIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mimetype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;image/jpeg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resumable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;media&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# self.mirror_service is initialized in util.auth_required.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# insert into the timeline&lt;/span&gt;
+&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mirror_service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;media_body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;media&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&amp;#39;A timeline item has been inserted.&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Any user with Glass can navigate to this page and install the score to &lt;i&gt;Armenian Dances&lt;/i&gt; on his or her Glass. It is possible to change this, however, using the settings in Google App Engine. One possible improvement for this application would be to bundle the images together. This way, if the user received a notification while they were installing the score, it would not be placed in between the pages in the score. Also, a single send button would be helpful; currently the user needs to click for each page of the score.&lt;/p&gt;
+
+&lt;p&gt;One clear limitation of Glass is the screen size. To combat this, Dr. Turner and I discussed the idea of a salient score that contains only the information necessary to conduct a work. As each conductor’s needs are different, each individual would likely need to create his or her own salient score. This would allow the scores to be as minimalistic as possible. Below is one possible salient score of the opening of &lt;i&gt;Gazebo Dances&lt;/i&gt;.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;img/salient.png&quot; alt=&quot;Salient&quot; style=&quot;width: 600px;&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;This score only contains time changes and other landmarks that are necessary to conduct the work. If a salient score is used in rehearsal, a full score is necessary to have nearby for reference.&lt;/p&gt;
+
+&lt;p&gt;To control page turns, a Bluetooth controller is optional, but recommended. To set this up, the native Android &lt;code&gt;Settings.apk&lt;/code&gt; file must be sideloaded on the device. Dan McLaughlin’s provides the file &lt;a href=&quot;https://googledrive.com/host/0B3CzS-bH2NyETHNQZC1TbWh4RTQ/Settings.apk&quot;&gt;here&lt;/a&gt;. This application can then be started with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell am start -n com.android.settings/com.android.settings.Settings
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After the control panel displays, it is possible to pair a keyboard or other Bluetooth device. After the pairing process is complete, pages can be navigated with the left and right arrows on the keyboard.&lt;/p&gt;
+
+&lt;p&gt;The source code for this project can be found online at &lt;a href=&quot;https://github.com/tehrlich/scoreviewer&quot;&gt;https://github.com/tehrlich/scoreviewer&lt;/a&gt;. The application is also in production and accessible at &lt;a href=&quot;http://cuwindskach.appspot.com&quot;&gt;http://cuwindskach.appspot.com&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/honors/glass/scoreviewer/&quot;&gt;Score Viewer for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Streaming Photos from Glass]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/honors/glass/photostreaming/" />
+  <id>http://localhost:4000/honors/glass/photostreaming</id>
+  <published>2014-01-03T00:00:00-05:00</published>
+  <updated>2014-01-03T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;i&gt;This was originally written for my thesis, available &lt;a href=&quot;thesis.pdf&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the original ideas for Dr. Turner’s research was to stream the conductor’s perspective from Glass. Due to the limited power of the device, it is currently not possible to live stream without at least a half of a second of latency. To combat this problem, one idea was to take still images and show them to the audience.&lt;/p&gt;
+
+&lt;p&gt;There are two Android applications that are necessary to make this task possible: &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.tina.time_lapse&quot;&gt;Tina Time-lapse&lt;/a&gt; by Wessel Rossing and &lt;a href=&quot;https://play.google.com/store/apps/details?id=lutey.FTPServer&quot;&gt;FTPServer&lt;/a&gt; by Andreas Liebig. Both of these must be sideloaded onto the device. After installing the applications onto a different rooted Android device, one must navigate to &lt;code&gt;/data/app/&lt;/code&gt; to find the corresponding APK files. Using ADB’s pull function, they can be transferred to a computer before using ADB to install them on Glass.&lt;/p&gt;
+
+&lt;p&gt;“Tina Time-lapse” is an Android application that automatically takes pictures at a user-defined time interval. Other settings allow the user to set the image’s resolution, quality, and location where the photo is saved. After installing the application using ADB, the image is initially distorted: &lt;/p&gt;
+
+&lt;center&gt;![distorted images](img/pictures.png &quot;Tina time-lapse preview is not working.&quot;)&lt;/center&gt;
+
+&lt;p&gt;This is a &lt;a href=&quot;http://stackoverflow.com/questions/19235477/google-glass-preview-image-scrambled-with-new-xe10-release&quot;&gt;known error&lt;/a&gt; with the release of EX10. After importing the source code into Eclipse, the addition of one line of Java fixes this problem:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setPreviewFpsRange&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is added after the Camera is initialized, in the &lt;code&gt;Recorder&lt;/code&gt; class in the package &lt;code&gt;nl.nanatech.b.tinatimelapse&lt;/code&gt;. To begin taking photos, one simply selects the second icon: the camera.&lt;/p&gt;
+
+&lt;p&gt;Glass will automatically sleep after several seconds of inactivity. This can be changed by manually installing the &lt;code&gt;Settings.apk&lt;/code&gt; file, starting the application using ADB, and changing the preference under the Display menu.&lt;/p&gt;
+
+&lt;p&gt;Photos can be accessed from a different computer after an FTP Server is configured on Glass. Although there are several applications available to accomplish this task, Andreas Liebig’s “FTPServer” has a setting that is required for the device to be network accessible. There are several network interfaces available through Glass:&lt;/p&gt;
+
+&lt;table class=&quot;table table-striped&quot;&gt;
+&lt;tr&gt;&lt;td&gt;lo&lt;/td&gt;&lt;td&gt;UP&lt;/td&gt;&lt;td&gt;127.0.0.1/8&lt;/td&gt;&lt;td&gt;0x00000049&lt;/td&gt;&lt;td&gt;00:00:00:00:00:00&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ifb0&lt;/td&gt;&lt;td&gt;UP&lt;/td&gt;&lt;td&gt;192.168.167.239/0&lt;/td&gt;&lt;td&gt;0x000000c3&lt;/td&gt;&lt;td&gt;86:67:db:e8:XX:XX&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ifb1&lt;/td&gt;&lt;td&gt;DOWN&lt;/td&gt;&lt;td&gt;0.0.0.0/0&lt;/td&gt;&lt;td&gt;0x00000082&lt;/td&gt;&lt;td&gt;3a:a5:94:8c:XX:XX&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;sit0&lt;/td&gt;&lt;td&gt;DOWN&lt;/td&gt;&lt;td&gt;0.0.0.0/0&lt;/td&gt;&lt;td&gt;0x00000080&lt;/td&gt;&lt;td&gt;00:00:00:00:00:00&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ip6tnl0&lt;/td&gt;&lt;td&gt;DOWN&lt;/td&gt;&lt;td&gt;0.0.0.0/0&lt;/td&gt;&lt;td&gt;0x00000080&lt;/td&gt;&lt;td&gt;00:00:00:00:00:00&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;wlan0&lt;/td&gt;&lt;td&gt;UP&lt;/td&gt;&lt;td&gt;192.168.1.113/24&lt;/td&gt;&lt;td&gt;0x00001043&lt;/td&gt;&lt;td&gt;f8:8f:ca:24:XX:XX&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Only the last interface, &lt;code&gt;wlan0&lt;/code&gt;, corresponds to the physical MAC address of the device. Due to an issue with the Glass interface, all FTP servers default to use the &lt;code&gt;ifb0&lt;/code&gt; interface. This prevents other clients from finding Glass on the local area network. The application “FTPServer” allows the interface to be manually set, sidestepping this bug.This error has not yet been reported to the Glass developers. I plan on submitting a bug report after I complete more testing in the coming weeks.&lt;/p&gt;
+
+&lt;p&gt;Wessel Rossing provided me the source code for  our research with Glass, but as it is not open source, it will not be posted it on Github. The source for “FTPServer” is also not available online, but no modification to the raw source code is necessary for it to work on Glass.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/honors/glass/photostreaming/&quot;&gt;Streaming Photos from Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 03, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Gazebo Dances: Errata]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/gazebo/errata/gazebo-errata/" />
+  <id>http://localhost:4000/gazebo/errata/gazebo-errata</id>
+  <published>2013-12-20T00:00:00-05:00</published>
+  <updated>2013-12-20T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;table class=&quot;table table-striped&quot;&gt;
+	&lt;thead&gt;
+		&lt;th&gt;Part or Score&lt;/th&gt;
+		&lt;th&gt;Movement and Measure&lt;/th&gt;
+		&lt;th&gt;Correction&lt;/th&gt;
+	 &lt;/thead&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Percussion&lt;/td&gt;
+		&lt;td&gt;I, II, III, and IV&lt;/td&gt;
+		&lt;td&gt;The score never indicates cymbal choices. Although it&#39;s generally obvious, the first movement is considerably crisper in sound when a stick is used with a suspended cymbal versus traditional crash cymbals.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score&lt;/td&gt;
+		&lt;td&gt;I, m.24&lt;/td&gt;
+		&lt;td&gt;Flute 2 is missing a tie between beats 2 and 3.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score&lt;/td&gt;
+		&lt;td&gt;I, m.74&lt;/td&gt;
+		&lt;td&gt;Ambiguous marking; the solo is in clarinet 2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Trumpet 2&lt;/td&gt;
+		&lt;td&gt;I, m.139&lt;/td&gt;
+		&lt;td&gt;&lt;i&gt;Not entirely errata, but an observation.&lt;/i&gt;Trumpet 1 and 3 are &lt;i&gt;senza sord.&lt;/i&gt;, but trumpet 2 is muted. The score reminds trumpet 2 at m.135 to be muted, but it seems odd that two thirds of the trumpets would be open on a unison line.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Percussion&lt;/td&gt;
+		&lt;td&gt;I, m.139&lt;/td&gt;
+		&lt;td&gt;&lt;i&gt;Not entirely errata, but an observation.&lt;/i&gt; There is no crash cymbal hit on beat 1, but the orchestral version and the recording by the North Texas Wind Symphony includes it.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score&lt;/td&gt;
+		&lt;td&gt;I, m.172&lt;/td&gt;
+		&lt;td&gt;The bells rhythm is difficult to read. It should be an eighth rest, two sixteenth notes on &#39;G&#39;, and an eighth note &#39;G&#39; on beat 2.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Bassoon&lt;/td&gt;
+		&lt;td&gt;II, m.40&lt;/td&gt;
+		&lt;td&gt;Missing crescendo found in both baritone and bass parts.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Alto Sax 1&lt;/td&gt;
+		&lt;td&gt;II, m.83&lt;/td&gt;
+		&lt;td&gt;In the alto clarinet cue, the last eighth note should be an E and not a C#.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Percussion&lt;/td&gt;
+		&lt;td&gt;II, m.85&lt;/td&gt;
+		&lt;td&gt;Instrument is ambiguous; it should be triangle, not snare drum.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Flute 1&lt;/td&gt;
+		&lt;td&gt;II, m.107&lt;/td&gt;
+		&lt;td&gt;Key change is missing to E major.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Bassoon&lt;/td&gt;
+		&lt;td&gt;II, m.172&lt;/td&gt;
+		&lt;td&gt;Missing articulation on beat 1 &amp;mdash; should be staccato and accent.&lt;/td&gt;
+	&lt;/tr&gt;
+		&lt;tr&gt;
+		&lt;td&gt;Clarinet 2&lt;/td&gt;
+		&lt;td&gt;III, m.4&lt;/td&gt;
+		&lt;td&gt;Clarinet 2 has an incorrect tie. Both halves of the measures should have phrase marks, but not ties.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score&lt;/td&gt;
+		&lt;td&gt;III, m.24&lt;/td&gt;
+		&lt;td&gt;Trombone 1 &amp;amp; 2 is missing a slur from the &quot;e&quot; of beat 4 to beat 5. The part is correct.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Tuba&lt;/td&gt;
+		&lt;td&gt;III, m.24&lt;/td&gt;
+		&lt;td&gt;The tuba part has an extra eighth note; the score is correct.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Tuba&lt;/td&gt;
+		&lt;td&gt;III, m.25&lt;/td&gt;
+		&lt;td&gt;Missing time change to 4/4.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Percussion&lt;/td&gt;
+		&lt;td&gt;IV, m.175&lt;/td&gt;
+		&lt;td&gt;Measure marking 175 is located in the incorrect location.&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Score and Percussion&lt;/td&gt;
+		&lt;td&gt;IV, mm.175-176&lt;/td&gt;
+		&lt;td&gt;&lt;i&gt;Not entirely errata, but an observation.&lt;/i&gt;A soft stick roll to a hard stick attack is extremely difficult, if not impossible. Two player are required, or it might be easier to simply have the roll be with sticks as well.&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gazebo/errata/gazebo-errata/&quot;&gt;Gazebo Dances: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on December 20, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sweeney Todd Through Glass]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/glass/conducting/Sweeney-Todd-Through-Glass/" />
+  <id>http://localhost:4000/glass/conducting/Sweeney-Todd-Through-Glass</id>
+  <published>2013-11-06T00:00:00-05:00</published>
+  <updated>2013-11-06T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;i&gt;Reposted from the CU Winds Google Glass blog available &lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/2013/11/06/sweeney-todd-through-google-glass/&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;Similar to Cindi’s recording with the Syracuse Society for New Music, I wanted to try recording my conducting using Glass. This video is from a very early tech rehearsal, and I posted it for the sheer number of demonstrative qualities that a Glass recording reveals. (As in, the errors you can hear are now fixed!)&lt;/p&gt;
+
+&lt;p&gt;First check out the video:&lt;/p&gt;
+
+&lt;iframe src=&quot;//www.youtube.com/embed/teuHR0x3btY&quot; frameborder=&quot;0&quot; width=&quot;560&quot; height=&quot;315&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Here’s what you’re seeing:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0:07: I &lt;strong&gt;quietly&lt;/strong&gt; breathe to have the players enter together, but it sounds quite loud on Glass.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0:23: I gesture and whisper to the pianist to continue holding that organ chord.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0:39: I lean over to the Assistant Pit Director to make a rehearsal note: Add a fermata song #4 measure 5.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0:49: The percussion keyboard should be on bells, not xylophone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;0:53: The violinist needed to change a string, so I &lt;strong&gt;quietly&lt;/strong&gt; sing his part to myself. Doesn’t 
+sound quiet here!
+1:00: I look over the cellist to fix the intonation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1:25: I ask the bassoonist to play that initial quarter note much stronger.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2:08: The tempo is initially too slow. To indicate the need to move faster, I begin to move my head up and down
+around 2:10.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2:26: Big cue to the strong trumpet and horn entrance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;2:40: I &lt;strong&gt;quietly&lt;/strong&gt; say “ow” to myself, as a reminder to fix the intonation in the waltz section.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;3:02: Big cue to the stopped horn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;3:15: Eye contact with the percussionist for the accelerando.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;3:35: Big cue to the trumpet solo.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My thoughts?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ouch!: &lt;/strong&gt;After about 15 minutes, I really began to feel how hot Glass was on my head.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Volume: &lt;/strong&gt;As Cindi addressed in her own post, all of my comments, singing, and breathing are really loud.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lighting: &lt;/strong&gt;Granted we are sitting in darkness, but the low light quality isn’t the best. The bright light facing me is so the actor’s can see me via a television hung above the audience.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Revolutionary: &lt;/strong&gt;After watching this video, I immediately knew the spots I needed to address in rehearsal. You’re likely thinking to yourself, “just use a video camera!” I do this already; I record all of my rehearsals with CU Winds. The problem is that the audio from the back of the room is all percussion. I need have two devices, an audio recorder in the front of the room, and a camera in the back of the room, and then merge them. While I’m not getting the perspective of watching me conduct, I’m still getting the perspective of seeing the players. It still shows me how much time I spend looking at the score and the amount of extraneous movement I have. Both are critical in assessing my own conducting.&lt;/p&gt;
+
+&lt;p&gt;Although this is still a bit of effort, if I was wearing Glass constantly, it wouldn’t be. I wouldn’t need to set up any recording equipment, charge batteries, transfer files over USB (Glass automatically does this.) It would be a seamless way to audit rehearsals after the fact. As someone who is constantly critiquing his own conducting and rehearsal technique, I find this essential.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/glass/conducting/Sweeney-Todd-Through-Glass/&quot;&gt;Sweeney Todd Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[BeatKeeper Version 1.0]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/honors/glass/BeatKeeper1/" />
+  <id>http://localhost:4000/honors/glass/BeatKeeper1</id>
+  <published>2013-11-06T00:00:00-05:00</published>
+  <updated>2013-11-06T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;i&gt;Reposted from the CU Winds Google Glass blog available &lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/2013/11/06/beatkeeper-version-1-0/&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;Cindi and I spent a few hours two weeks ago getting BeatKeeper up and running on Glass. After cloning the repository on my local machine, I imported the app into Eclipse and pushed it to the device. We were immediately presented with something that looks like this:&lt;/p&gt;
+
+&lt;center&gt;&lt;p&gt;&lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-240&quot; title=&quot;beatkeeper1&quot; src=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper1-mxu0ki.png&quot; alt=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/center&gt;
+
+&lt;p&gt;It was quite exciting for us to see a metronome! I swiped forward and back to navigate through the controls; I hit play and a consistent pulse started in my ear. Perfect.&lt;/p&gt;
+
+&lt;p&gt;Next thing was making it landscape and more easy to read. I headed into the &lt;code&gt;AndroidManifest.xml&lt;/code&gt; file and changed &lt;code&gt;android:screenOrientation=&quot;portrait&quot;&lt;/code&gt; to &lt;code&gt;android:screenOrientation=&quot;landscape&quot;&lt;/code&gt;. Now we were presented with something a bit more usable, but the Start button was cut off:&lt;/p&gt;
+
+&lt;center&gt;&lt;p&gt;&lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-237&quot; title=&quot;beatkeeper2&quot; src=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper2-16qrdna.png&quot; alt=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/center&gt;
+
+&lt;p&gt;This was a great time for me to introduce layout files to Cindi, so I went over the XML and explained how the placement worked. We messed around with the layout and sizing and ended up here:&lt;/p&gt;
+
+&lt;center&gt;&lt;p&gt;&lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-235&quot; title=&quot;beatkeeper&quot; src=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper-2lle8xw.png&quot; alt=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/center&gt;
+
+&lt;p&gt;After our NYC media lunch, I put in a lot of thought about usability. Buttons are appropriate for mobile devices, but not really for Glass. Using the slider and tap gestures are considerably more intuitive and simple. In their &lt;a href=&quot;https://developers.google.com/glass/guidelines&quot;&gt;usability guidelines&lt;/a&gt;, Google writes, &amp;#8220;Glass users expect the technology to be there when they want it and out of the way when they don&amp;#8217;t. Your Glassware should never take precedence over users&amp;#8217; lives.&amp;#8221; Especially in a rehearsal setting, I wanted to design something simple and intuitive.&lt;/p&gt;
+
+&lt;p&gt;Here is the first real version of BeatKeeper for Glass:&lt;/p&gt;
+
+&lt;center&gt;&lt;p&gt;&lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-241&quot; title=&quot;beatkeeper3&quot; src=&quot;http://blogs.cornell.edu/cuwindsglass/files/2013/11/beatkeeper3-1kzxr8q.png&quot; alt=&quot;&quot; width=&quot;640&quot; height=&quot;360&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/center&gt;
+
+&lt;p&gt;It&amp;#8217;s simple and easy to read. To adjust the tempo, simply slide your finger on the side of Glass. To start and start the metronome, tap once. All of the gestures are recognized via a &lt;a href=&quot;http://developer.android.com/reference/android/view/GestureDetector.html&quot;&gt;&lt;code&gt;GestureDetector&lt;/code&gt;&lt;/a&gt;. I&amp;#8217;ve stripped all unnecessary controls from the app. The resulting experience is sleek and straight forward to use.&lt;/p&gt;
+
+&lt;p&gt;Here is the source for the &lt;code&gt;GestureDetector&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onScroll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MotionEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MotionEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+					   &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Gesture Example&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;onScroll: distanceX:&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot; distanceY:&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distanceX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//determine scrolling direction&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bpmText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;bpmText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;metroTask&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setBpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distanceX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+    	&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--;&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bpmText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;bpmText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;metroTask&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setBpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bpm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;line-height: 1.714285714; font-size: 1rem;&quot;&gt;So what&amp;#8217;s next for BeatKeeper for Glass?&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A reverse metronome is a tool for finding a tempo via tapping. Over the next few days, I hope to create another simple tool that averages taps on the device. I&amp;#8217;m not sure if it will be a standalone application or integrated with BeatKeeper. Although the two go hand-in-hand, it would be difficult to switch functions between a metronome and a reverse metronome. A long press on the side could change the mode of the application, but if you press and hold for around two seconds, you are presented with a Google Search. There is an intermediary gesture of around one second, &lt;code&gt;onShowPress&lt;/code&gt;, but if you hold it down for too long, you&amp;#8217;re presented with the search window. The only way to override this, as far as I know, would be to root the device and edit the Glass interface itself. The other idea is to utilize swiping up and down to change the functionality.&lt;/p&gt;
+
+&lt;p&gt;The (somewhat hastily written) source is viewable on Github here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/tehrlich/BeatKeeper&quot;&gt;https://github.com/tehrlich/BeatKeeper&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/honors/glass/BeatKeeper1/&quot;&gt;BeatKeeper Version 1.0&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Post with a Background Image]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/background-image/" />
+  <id>http://localhost:4000/background-image</id>
+  <published>2013-10-26T00:00:00-04:00</published>
+  <updated>2013-10-26T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Here be a sample post with a custom background image. To utilize this “feature” just add the following YAML to a post’s front matter.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;filename.png&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This little bit of YAML makes the assumption that your background image asset is in the &lt;code&gt;/images&lt;/code&gt; folder. If you place it somewhere else or are hotlinking from the web, just include the full http(s):// URL. Either way you should have a background image that is tiled.&lt;/p&gt;
+
+&lt;p&gt;If you want to set a background image for the entire site just add &lt;code&gt;background: filename.png&lt;/code&gt; to your &lt;code&gt;_config.yml&lt;/code&gt; and BOOM — background images on every page!&lt;/p&gt;
+
+&lt;div xmlns:cc=&quot;http://creativecommons.org/ns#&quot; xmlns:dct=&quot;http://purl.org/dc/terms/&quot; about=&quot;http://subtlepatterns.com&quot; class=&quot;notice&quot;&gt;Background images from &lt;span property=&quot;dct:title&quot;&gt;Subtle Patterns&lt;/span&gt; (&lt;a rel=&quot;cc:attributionURL&quot; property=&quot;cc:attributionName&quot; href=&quot;http://subtlepatterns.com&quot;&gt;Subtle Patterns&lt;/a&gt;) / &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/background-image/&quot;&gt;Post with a Background Image&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 26, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Spelling Bee: Errata]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/errata/spelling-bee-errata/" />
+  <id>http://localhost:4000/errata/spelling-bee-errata</id>
+  <published>2013-10-22T00:00:00-04:00</published>
+  <updated>2013-10-22T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Here is an errata list for the MTI version of “The 25th Annual Putnam County Spelling Bee.”
+&amp;lt;table class = &quot;table table-striped&quot;&amp;gt;
+	&amp;lt;thead&amp;gt;
+		&amp;lt;th&amp;gt;Part or Score&amp;lt;/th&amp;gt;
+		&amp;lt;th&amp;gt;Song Number, Measure&amp;lt;/th&amp;gt;
+		&amp;lt;th&amp;gt;Correction&amp;lt;/th&amp;gt;
+	 &amp;lt;/thead&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Score&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;1, m. 3&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;The score says “first time only”, but there is no repeat at all. Very odd.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Score&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;4, m.63&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;The snare drum roll ends on beat three, not four. The percussion book is correct.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Score, Percussion&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;6, m.1&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;Ambiguous marking; the hi-hat roll begins on the word “spell”.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Score&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;9, m.27&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;The saxophone is tacet here.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Score&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;12, mm.14-15&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;The half-step cello slide is missing from beat four to beat one.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Reed&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;12, mm.88-91&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;The Flute trill is missing in the reed book.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+	&amp;lt;tr&amp;gt;
+		&amp;lt;td&amp;gt;Percussion&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;12, m.101&amp;lt;/td&amp;gt;
+		&amp;lt;td&amp;gt;Cymbal roll starting on beat two is missing.&amp;lt;/td&amp;gt;
+	&amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/errata/spelling-bee-errata/&quot;&gt;Spelling Bee: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Gazebo Dances: Rehearsal Schedule]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/gazebo/gazebo-plan/" />
+  <id>http://localhost:4000/gazebo/gazebo-plan</id>
+  <published>2013-10-07T00:00:00-04:00</published>
+  <updated>2013-10-07T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I had the opportunity to rehearse and perform &lt;i&gt;Gazebo Dances for Band&lt;/i&gt; with the Cornell University Winds during Fall 2013. Below is my rehearsal schedule and a reflection after each rehearsal. Generally speaking, Gazebo Dances was allotted 45 minutes of rehearsal time in the beginning of the semester, and 30 minutes closer to the concert (due to the addition of another work on the program).&lt;/p&gt;
+
+&lt;p&gt;The rehearsal scope is my own addition, and is rated on the following scale:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Very Macro — Broad strokes on the entire piece, or several movements.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Macro — A single movement through one lens, themes, and form.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Micro — A focus on individual motives, balance, blend, shaping, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Very Micro — Very specific matters, e.g., note length/attacks/releases, articulation, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;These reflections are fairly informal, due to the personal nature of journal entries.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 1 – 10/1/2013 – Very Macro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Sight reading, with as few stops as possible. Provide brief background to the work, its origins as a piano solo, and then play it!&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Good sight reading! Not too much to report here. We have a lot of work to do, but we mostly made it through the initial run. &lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 2 – 10/3/2013 – Macro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Read through movements one and three. Discuss their overall moods and figure out what feelings are evoked. “What do we need musically to make these feelings happen for the audience?” &lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; In 40 minutes, we successfully ran through and discussed main ideas behind the work. Descriptors for movement one included joyous, upbeat, and political (?). Movement three was well summarized by one student as “bittersweet.” There were many blank stares from the ensemble when I asked for their input. Calling on students was necessary, but it got everyone more engaged. It is hard to tell how many of them enjoy actively learning about the work, versus just the “fix-it” mentality so frequently used in rehearsals. I believe it will help to grow their overall musicianship. &lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 3 – 10/8/2013 – Macro (some Micro) &lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Read through movement two, focusing on the same initial matters (moods, feelings) as for movements one and three in the first rehearsal. Start rehearsing movement one, pointing out the main themes and how they should be approached musically. If time remains, read through movement four, and explain that due to its straightforward nature, it will be rehearsed considerably less than the other three. &lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Movement two went quite well. We took it initially under tempo (~132 bpm) to ensure playability, but quickly increased it to closer to performance tempo. Descriptors included “creepy circus” and “lopsided”. We briefly discussed what characteristics give it this feel (frequent harmonic shifts and asymmetrical meter). In movement one, we focused on main motives and the best way to approach them musically. We also started speaking about style. The read-through of movement four was surprisingly poor. Issues were mainly caused by a lack of counting and confidence in playing the more exposed sections. This will be rehearsed on Thursday. Notes from Robert Issacs, “Continue `crowd sourcing’ your rehearsals; it makes everyone quite engaged. Your Socratic rehearsal technique is effective. Consider mirroring less (although it’s helpful in these beginning rehearsals) and being more conscientious about the perceived dynamic size from your pattern. Take a slower tempo on trickier spots, if you believe it will assist in note accuracy.”&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 4 – 10/10/2013 – Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Start rehearsing movements three, four, and one, pointing out technically challenging spots that ensemble members will need to focus on individually.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Now that we were a week into the piece, I wanted to draw folks’ attention to problematic spots. This would give them a chance to get the correct notes under their fingers before we continued the rehearsal process. In the beginning of the third movement, I gave Nick (oboe soloist) some ideas about shaping his solo, and his use of vibrato. Due to the transparency of the ensemble during his solo, I recommended that he allow his tone to start straight, and then have the vibrato blossom. I believe this imagery worked well, and his sound greatly improved in the third movement overall. I also showed the clarinets the extremely high (and difficult to tune) soloistic writing in the third movement. In the fourth movement, I pointed out solos in the trumpet, clarinet, and oboe. We also worked on section balance during the frequent solos in the movement. Unfortunately, I ran out of time to continue to movement one. Although I did not stay particularly loyal to only pointing out spots that require individual attention, I believe the ensemble became more familiar with Gazebo Dances overall.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 5 – 10/17/2013 – Macro, some Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Start with movement two at full tempo, but still beat the 3/4 measures in three and the 5/4 measures in five. Work on evoking the different moods of the movement, and draw attention to spots that still need personal practice. Fix all incorrect notes and missed entrances. Rehearse movement four slowly, section by section, under tempo. Demonstrate the significant dynamic contrast and the importance of listening across the ensemble for a consistent pulse. If time remains, run the movement at the end.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; This rehearsal was extremely successful. Movement two is falling well under the fingers, except for several technically difficult passages (for example, flute/piccolo/xylophone mm. 46-50). Cindi suggested that I rehearse movement 4 from end to beginning, which worked well. We ran the movement at the end of rehearsal to put all of our work into context.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 6 – 10/22/2013 – Very Macro, then Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Since we are now a third of the way through the rehearsal process, run the entire work, having students note sections that need attention. Write them down, and tackle the larger ones today, and others on Thursday.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Running the piece exposed a lot errors, ranging from incorrect notes and entrances to very poor ensemble balance and blend. Overall, it was truly difficult for me not to stop and to allow errors to go by quickly. After running the piece, I asked everyone what they thought. “Which movements went well? Which need the most work?” They were actively listening and critiquing the ensemble, which was great. After that, I polled the ensemble to know which movement they thought was the worst. The consensus was movement three; I agreed. We started at the beginning of the third movement, and fixed many incorrect entrances. Just before ending, I told the ensemble that I would send out the recording shortly so that everyone could listen to the full ensemble sound.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 7 – 10/24/2013 – Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Start fixing errors found in the run through in rehearsal six. Tackle the most problematic movements first: begin with the second half of movement three, then jump to the beginning of movement one for style.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; It was great to be back in charge, so to speak. Giving up control to the students’ ears is very difficult. James Spinazzola and I spoke frequently last semester about the “fix-it” mentality that rehearsal technicians have: spot an error, and fix it. This makes rehearsals usually successful (keeping in mind that retention is a problem), but they are usually bland and unenjoyable for the ensemble. We began with the third movement. I asked the clarinetists why m. 42 was a problem; they told me they did not understand how the fermatas were being conducted. After clarifying this, we ran this section successfully. I could tell the other members of the ensemble were starting to fall asleep, especially the percussion (which is minimal in this movement.) I jumped to the first movement to get more students involved. We retuned the opening 9th interval, and worked on unifying the style and balance of the opening sonority. We also reviewed the necessary dynamic shifts needed, especially in sections like mm. 8-14, where the works goes from ff to mf, mp, f, p, and finally back to f.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 8 – 10/31/2013 – Macro and Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Today’s goal is to finish providing feedback on the movements we worked on in rehearsal 7: the second halves of movements one and three.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; I began in the middle of the first movement. I frequently do not do this, since I believe that providing context is essential. However, since I wanted to focus on the second half, I began at m. 108. The first goal was to unify the tempo shift beginning at m. 124. Although we discussed this rallentando before, it was clear that ensemble members were not expecting it. I asked them to both circle it and check in with me to find our new tempo. We also worked on more important lines in this section: muted trombones at mm. 127-128 and all of the section solis throughout. Since I was short on time, I jumped to movement three afterward. We began at m. 10, worked on balance in the solo clarinets, unity in brass beginning in m. 13, and intonation in the woodwinds beginning in m. 15. I asked the flutes and piccolo to play senza vibrato in order to better blend with the clarinets. Just before ending the rehearsal, I began to address the brass style (first marked and separated, and then warm and lush) in m. 30 and onward. &lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 9 – 11/1/2013 – Macro, Micro, and Very Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Start by running movement four, focusing on overall balance and blend. Afterwards, start back from the beginning and fix these issues. Stop when necessary to fix these problems and other style concerns.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; After running the work, I solicited feedback from the ensemble. Students agreed that they were very much into their own parts, and did not focus well on others. Beginning in m. 152, the brass began to rush considerably. This was noticed by many of the woodwinds. I also addressed the quick mute change necessary in the trumpets at m. 145; it was missed each time that we ran this movement. After pointing out these mistakes, we began back at the beginning. I let the ensemble play for few dozen bars to hear how significant the ensemble sound changes when folks are actively listening. After that, we began to work on micro details, especially unifying style.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 10 – 11/5/2013 – Very Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Polish movement one.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Before I began, I warned the ensemble that I would stop frequently, and that our goal was to polish the first movement. I also told them that although I usually enjoy facilitating rehearsals with a lot of ensemble interaction, we did not have a lot of time to spend doing this for the rest of the rehearsal process. (That being said, they were very understanding. Some of the students that do not like giving feedback were happy to hear this!) I stopped to unify several entrances, and we spent a considerable portion on the “slightly slower” section of the movement, mm. 124-147. As I only had a few minutes left after fixing balance in this section, we played to the end of the movement and stopped.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 11 – 11/7/2013 – Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Work on improving the style of the second movement. Currently it is quite heavy, as opposed to a light waltz.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; After I gave this opening idea, I started to conduct the work in a faster three. I thought about conducting this movement in one, but I knew that it would be considerably more difficult for the ensemble and for myself. Just as I was thinking this, Cindi said, “Why don’t you conduct it in one?” “Oh no!” I thought to myself. I knew I was going to have serious problems with this. Even so, I gave it a try. I was quite uncomfortable. I was focusing on my conducting and not on the ensemble. This made it quite difficult to rehearse as well. The style was slightly improved, but overall, it was not worth the problems it was causing. I decided to work on my conducting before the next rehearsal, and jump to movement four to fix a few problematic areas there. During my final 10 minutes, I isolated the melody in the basses (mm. 110-114), the unison woodwind and muted trumpet soli (mm. 119-123) and the trombone glisses (mm. 132-133).&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 12 – 11/12/2013 – Macro, Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; After spending a few days working on my one pattern (for movement two), I want to put in context. Work the movement back to front since the ending is the most shaky.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Conducting this movement in one was adequate, but not ideal. Each time there was an entrance issue, I was unsure if it was my error or the players’. This is not a good spot for a conductor to be in; I do not want to tell people they are making mistakes if it is my fault. I have decided from this point onward to conduct the work in three for the sake of clarity. I believe that at this point, accurate entrances take precedence over style. Conducting the movement in three also ensures that I have complete confidence when rehearsing the ensemble. This is essential from this point forward, as we are working to finesse details. Working the movement back to front was a good idea. By the end of the rehearsal, the ending was sounding considerably more confident.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 13 – 11/14/2013 – Micro, Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Run movement three, and then return to fix errors.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; It was difficult to run this movement without stops, but I wanted to be sure that everyone were playing right from the start. This is the most thinly scored movement, and I have noticed before how quickly the ensemble zones out when rehearsing it slowly. After we stopped, we returned to the opening of the movement. I complimented Nick on his solo; the vibrato was quite well done. I asked him for a greater sense of shaping, especially with the marked hairpins in m. 7. We previously added hairpins to the ostinato in the opening clarinets. I reminded everyone about those, and the role of the constant eighths (to keep the tempo consistent). In the next section, we worked on the balance between the first and second clarinets in mm. 10-12 and the piú mosso section at m. 12. At the next rehearsal, I want to continue with the third movement and work on the overall quality of the ensemble sound in the climax of this movement.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 14 – 11/19/2013 – Very Micro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; Since this is our second to last rehearsal, and the final rehearsal before we are in the concert hall, focus on the spots that need the most attention in movements two, three, and four.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; I started with the end of movement two, working back to front (quickly!) We realigned a few entrances that were problematic. These were fixed previously, but were not retained. After that, I resumed where I had left off in movement two from the last rehearsal: m. 17. The brass was not playing with their best tone, so I asked them to think of a personal memory that would reflect a warm chorale. My example was a large church choir. I reminded them that connections between music and life are essential; this is why we make music! I also drew their attention to the almost sorrowful nature of the accented notes in m. 20 and the need to exaggerate length and tone quality. We also worked on the overarching crescendo into the climax at m. 30. After briefly refining the conclusion of the movement, I worked back to front on movement four, ensuring that all of the various section solis were strong and accurate.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Rehearsal 15 – 11/21/2013 – Very Macro&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;Plan:&lt;/b&gt; As this is the final rehearsal, I want to run the work and address balance and blend in Bailey Hall, where it will be performed.&lt;br /&gt;
+&lt;b&gt;Reflection:&lt;/b&gt; Although I wanted to stop and address quite a few passages, I knew that I had only a brief amount of time. As such, I only made essential comments. I reminded everyone that crispness was quite important; the sound in Bailey is considerably more live and resonant than in our rehearsal room (Lincoln B20). In the second movement, section solis were too quiet. I had everyone play more soloistically when they had the melody. In the final movement, everyone still wanted to rush the end considerably. I asked them to write “don’t rush” at the final statement of the melody (m. 152). After this, I thanked everyone for a wonderful rehearsal process and told them how much I look forward to the concert. &lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gazebo/gazebo-plan/&quot;&gt;Gazebo Dances: Rehearsal Schedule&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 07, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Syntax Highlighting Post]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/code-highlighting-post/" />
+  <id>http://localhost:4000/code-highlighting-post</id>
+  <updated>2013-08-20T00:00:00-00:00</updated>
+  <published>2013-08-16T00:00:00-04:00</published>
+  
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Syntax_highlighting&quot;&gt;Syntax highlighting&lt;/a&gt; is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.&lt;/p&gt;
+
+&lt;h3 id=&quot;pygments-code-blocks&quot;&gt;Pygments Code Blocks&lt;/h3&gt;
+
+&lt;p&gt;To modify styling and highlight colors edit &lt;code&gt;/assets/less/pygments.less&lt;/code&gt; and compile &lt;code&gt;main.less&lt;/code&gt; with your favorite preprocessor. Or edit &lt;code&gt;main.css&lt;/code&gt; if that’s your thing, the classes you want to modify all begin with &lt;code&gt;.highlight&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-240px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Line numbering enabled:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pagination&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;navigation&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     {% if page.previous %}
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;         &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ site.url }}{{ page.previous.url }}&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btn&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ page.previous.title }}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Previous article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;     {% endif %}
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;     {% if page.next %}
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt;         &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ site.url }}{{ page.next.url }}&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btn&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ page.next.title }}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Next article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt;     {% endif %}
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- /.pagination --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Jekyll&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TagIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Page&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@site&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dir&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_yaml&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;_layouts&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_prefix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Tagged: &amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;tag_title_suffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tag_title_suffix&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;amp;#8211;&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag_title_prefix&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;description&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;An archive of posts tagged &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;standard-code-block&quot;&gt;Standard Code Block&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;nav class=&quot;pagination&quot; role=&quot;navigation&quot;&amp;gt;
+    {% if page.previous %}
+        &amp;lt;a href=&quot;{{ site.url }}{{ page.previous.url }}&quot; class=&quot;btn&quot; title=&quot;{{ page.previous.title }}&quot;&amp;gt;Previous article&amp;lt;/a&amp;gt;
+    {% endif %}
+    {% if page.next %}
+        &amp;lt;a href=&quot;{{ site.url }}{{ page.next.url }}&quot; class=&quot;btn&quot; title=&quot;{{ page.next.title }}&quot;&amp;gt;Next article&amp;lt;/a&amp;gt;
+    {% endif %}
+&amp;lt;/nav&amp;gt;&amp;lt;!-- /.pagination --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;fenced-code-blocks&quot;&gt;Fenced Code Blocks&lt;/h3&gt;
+
+&lt;p&gt;To modify styling and highlight colors edit &lt;code&gt;/assets/less/coderay.less&lt;/code&gt; and compile &lt;code&gt;main.less&lt;/code&gt; with your favorite preprocessor. Or edit &lt;code&gt;main.css&lt;/code&gt; if that’s your thing, the classes you want to modify all begin with &lt;code&gt;.coderay&lt;/code&gt;. Line numbers and a few other things can be modified in &lt;code&gt;_config.yml&lt;/code&gt; under &lt;code&gt;coderay&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;id&quot;&gt;#container&lt;/span&gt; {
+    &lt;span class=&quot;key&quot;&gt;float&lt;/span&gt;: &lt;span class=&quot;value&quot;&gt;left&lt;/span&gt;;
+    &lt;span class=&quot;key&quot;&gt;margin&lt;/span&gt;: &lt;span class=&quot;float&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;float&quot;&gt;-240px&lt;/span&gt; &lt;span class=&quot;float&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;float&quot;&gt;0&lt;/span&gt;;
+    &lt;span class=&quot;key&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;float&quot;&gt;100%&lt;/span&gt;;
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;pagination&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;role&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;gt;&lt;/span&gt;
+    {% if page.previous %}
+        &lt;span class=&quot;tag&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;{{ site.url }}{{ page.previous.url }}&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;{{ page.previous.title }}&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;gt;&lt;/span&gt;Previous article&lt;span class=&quot;tag&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    {% endif %}
+    {% if page.next %}
+        &lt;span class=&quot;tag&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;{{ site.url }}{{ page.next.url }}&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;btn&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;attribute-name&quot;&gt;title&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;{{ page.next.title }}&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;gt;&lt;/span&gt;Next article&lt;span class=&quot;tag&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    {% endif %}
+&lt;span class=&quot;tag&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- /.pagination --&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;Jekyll&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;TagIndex&lt;/span&gt; &amp;lt; &lt;span class=&quot;constant&quot;&gt;Page&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;initialize&lt;/span&gt;(site, base, dir, tag)
+      &lt;span class=&quot;instance-variable&quot;&gt;@site&lt;/span&gt; = site
+      &lt;span class=&quot;instance-variable&quot;&gt;@base&lt;/span&gt; = base
+      &lt;span class=&quot;instance-variable&quot;&gt;@dir&lt;/span&gt; = dir
+      &lt;span class=&quot;instance-variable&quot;&gt;@name&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;index.html&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;predefined-constant&quot;&gt;self&lt;/span&gt;.process(&lt;span class=&quot;instance-variable&quot;&gt;@name&lt;/span&gt;)
+      &lt;span class=&quot;predefined-constant&quot;&gt;self&lt;/span&gt;.read_yaml(&lt;span class=&quot;constant&quot;&gt;File&lt;/span&gt;.join(base, &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;_layouts&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;), &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;tag_index.html&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;)
+      &lt;span class=&quot;predefined-constant&quot;&gt;self&lt;/span&gt;.data[&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;] = tag
+      tag_title_prefix = site.config[&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;tag_title_prefix&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;] || &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;Tagged: &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+      tag_title_suffix = site.config[&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;tag_title_suffix&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;] || &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;&amp;amp;#8211;&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;predefined-constant&quot;&gt;self&lt;/span&gt;.data[&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;inline&quot;&gt;&lt;span class=&quot;inline-delimiter&quot;&gt;#{&lt;/span&gt;tag_title_prefix&lt;span class=&quot;inline-delimiter&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;inline&quot;&gt;&lt;span class=&quot;inline-delimiter&quot;&gt;#{&lt;/span&gt;tag&lt;span class=&quot;inline-delimiter&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;predefined-constant&quot;&gt;self&lt;/span&gt;.data[&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;An archive of posts tagged &lt;/span&gt;&lt;span class=&quot;inline&quot;&gt;&lt;span class=&quot;inline-delimiter&quot;&gt;#{&lt;/span&gt;tag&lt;span class=&quot;inline-delimiter&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;github-gist-embed&quot;&gt;GitHub Gist Embed&lt;/h3&gt;
+
+&lt;p&gt;An example of a Gist embed below.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/mmistakes/6589546.js&quot;&gt; &lt;/script&gt;
+
+&lt;script src=&quot;https://gist.github.com/8531391.js&quot;&gt; &lt;/script&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/code-highlighting-post/&quot;&gt;Syntax Highlighting Post&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on August 16, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sample Link Post]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/sample-link-post/" />
+  <id>http://localhost:4000/sample-link-post</id>
+  <published>2013-08-12T00:00:00-04:00</published>
+  <updated>2013-08-12T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;This theme supports &lt;strong&gt;link posts&lt;/strong&gt;, made famous by John Gruber. To use, just add &lt;code&gt;link: http://url-you-want-linked&lt;/code&gt; to the post’s YAML front matter and you’re done.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/sample-link-post/&quot;&gt;Sample Link Post&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on August 12, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[A Post with a Video]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/video-post/" />
+  <id>http://localhost:4000/video-post</id>
+  <published>2013-06-25T00:00:00-04:00</published>
+  <updated>2013-06-25T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/SU3kYxJmWuQ&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
+
+&lt;p&gt;Video embeds are responsive and scale with the width of the main content block with the help of &lt;a href=&quot;http://fitvidsjs.com/&quot;&gt;FitVids&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Not sure if this only effects Kramdown or if it’s an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags and remove &lt;code&gt;allowfullscreen&lt;/code&gt;. Example below:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;560&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;315&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;//www.youtube.com/embed/SU3kYxJmWuQ&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/video-post/&quot;&gt;A Post with a Video&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on June 25, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Readability Feature Post]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/readability-feature-post/" />
+  <id>http://localhost:4000/readability-feature-post</id>
+  <published>2013-05-23T00:00:00-04:00</published>
+  <updated>2013-05-23T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;hr /&gt;
+&lt;p&gt;layout: post
+title: “Post with Large Feature Image and Text”
+description: “Custom written post descriptions are the way to go… if you’re not lazy.”
+tags: [sample post, readability]
+modified: 2013-06-30
+image:
+  feature: abstract-7.jpg
+  credit: dargadgetz
+  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  —&lt;/p&gt;
+
+&lt;p&gt;This is a sample post with a large feature image up top and tons of text. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
+
+&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
+
+&lt;h2 id=&quot;cupidatat-90s-lo-fi-authentic-try-hard&quot;&gt;Cupidatat 90’s lo-fi authentic try-hard&lt;/h2&gt;
+
+&lt;p&gt;In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s. &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sartorial hoodie &lt;/li&gt;
+  &lt;li&gt;Labore viral forage&lt;/li&gt;
+  &lt;li&gt;Tote bag selvage &lt;/li&gt;
+  &lt;li&gt;DIY exercitation et id ugh tumblr church-key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.&lt;/p&gt;
+
+&lt;p&gt;Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven’t heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney’s Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.&lt;/p&gt;
+
+&lt;h2 id=&quot;forage-occaecat-cardigan-qui&quot;&gt;Forage occaecat cardigan qui&lt;/h2&gt;
+
+&lt;p&gt;Fashion axe hella gastropub lo-fi kogi 90’s aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney’s next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney’s sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.&lt;/p&gt;
+
+&lt;h2 id=&quot;hoodie-duis&quot;&gt;Hoodie Duis&lt;/h2&gt;
+
+&lt;p&gt;Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90’s pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.&lt;/p&gt;
+
+&lt;h3 id=&quot;thundercats-ho&quot;&gt;Thundercats Ho!&lt;/h3&gt;
+
+&lt;p&gt;Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney’s seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.&lt;/p&gt;
+
+&lt;p&gt;Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney’s selfies. Odd Future Banksy non authentic.&lt;/p&gt;
+
+&lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/readability-feature-post/&quot;&gt;Readability Feature Post&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on May 23, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[A Post with Images]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/sample-post-images/" />
+  <id>http://localhost:4000/sample-post-images</id>
+  <published>2013-05-22T00:00:00-04:00</published>
+  <updated>2013-05-22T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use &lt;code&gt;figure&lt;/code&gt; with the appropriate &lt;code&gt;class&lt;/code&gt;. Each instance of &lt;code&gt;figure&lt;/code&gt; is auto-numbered and displayed in the caption.&lt;/p&gt;
+
+&lt;h2 id=&quot;figures-for-images-or-video&quot;&gt;Figures (for images or video)&lt;/h2&gt;
+
+&lt;h3 id=&quot;one-up&quot;&gt;One Up&lt;/h3&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg&quot;&gt;&lt;img src=&quot;http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;&lt;a href=&quot;http://www.flickr.com/photos/80901381@N04/7758832526/&quot; title=&quot;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&quot;&gt;Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr&lt;/a&gt;.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;two-up&quot;&gt;Two Up&lt;/h3&gt;
+
+&lt;p&gt;Apply the &lt;code&gt;half&lt;/code&gt; class like so to display two images side by side that share the same caption.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;half&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/images/image-filename-1.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/images/image-filename-2.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these two images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;
+	&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;
+	&lt;figcaption&gt;Two images.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;three-up&quot;&gt;Three Up&lt;/h3&gt;
+
+&lt;p&gt;Apply the &lt;code&gt;third&lt;/code&gt; class like so to display three images side by side that share the same caption.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;third&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/1200x600.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://placehold.it/600x300.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/span&gt;Caption describing these three images.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figcaption&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you’ll get something that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;third&quot;&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://placehold.it/1200x600.jpg&quot;&gt;&lt;img src=&quot;http://placehold.it/600x300.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;Three images.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/sample-post-images/&quot;&gt;A Post with Images&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on May 22, 2013.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Testing Readability with a Bunch of Text]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/readability-post/" />
+  <id>http://localhost:4000/readability-post</id>
+  <published>2012-05-22T00:00:00-04:00</published>
+  <updated>2012-05-22T00:00:00-04:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
+
+&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
+
+&lt;h2 id=&quot;cupidatat-90s-lo-fi-authentic-try-hard&quot;&gt;Cupidatat 90’s lo-fi authentic try-hard&lt;/h2&gt;
+
+&lt;p&gt;In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s. &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sartorial hoodie &lt;/li&gt;
+  &lt;li&gt;Labore viral forage&lt;/li&gt;
+  &lt;li&gt;Tote bag selvage &lt;/li&gt;
+  &lt;li&gt;DIY exercitation et id ugh tumblr church-key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.&lt;/p&gt;
+
+&lt;p&gt;Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven’t heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney’s Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.&lt;/p&gt;
+
+&lt;h2 id=&quot;forage-occaecat-cardigan-qui&quot;&gt;Forage occaecat cardigan qui&lt;/h2&gt;
+
+&lt;p&gt;Fashion axe hella gastropub lo-fi kogi 90’s aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney’s next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney’s sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.&lt;/p&gt;
+
+&lt;h2 id=&quot;hoodie-duis&quot;&gt;Hoodie Duis&lt;/h2&gt;
+
+&lt;p&gt;Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90’s pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.&lt;/p&gt;
+
+&lt;h3 id=&quot;thundercats-ho&quot;&gt;Thundercats Ho!&lt;/h3&gt;
+
+&lt;p&gt;Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney’s seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.&lt;/p&gt;
+
+&lt;p&gt;Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney’s selfies. Odd Future Banksy non authentic.&lt;/p&gt;
+
+&lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/readability-post/&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on May 22, 2012.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sample Post]]></title>
+ <link rel="alternate" type="text/html" href="http://localhost:4000/sample-post/" />
+  <id>http://localhost:4000/sample-post</id>
+  <updated>2013-05-31T00:00:00-00:00</updated>
+  <published>2011-03-10T00:00:00-05:00</published>
+  
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri>http://localhost:4000</uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+
+&lt;h3 id=&quot;body-text&quot;&gt;Body text&lt;/h3&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. &lt;strong&gt;This is strong&lt;/strong&gt;. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
+
+&lt;p class=&quot;pull-right&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/3953273590_704e3899d5_m.jpg&quot; alt=&quot;Smithsonian Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is emphasized&lt;/em&gt;. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H&lt;sub&gt;2&lt;/sub&gt;O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times &lt;cite&gt;(That’s a citation)&lt;/cite&gt;. &lt;u&gt;Underline&lt;/u&gt;. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.&lt;/p&gt;
+
+&lt;p&gt;HTML and &lt;abbr title=&quot;cascading stylesheets&quot;&gt;CSS&lt;abbr&gt; are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.&lt;/abbr&gt;&lt;/abbr&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;blockquotes&quot;&gt;Blockquotes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;list-types&quot;&gt;List Types&lt;/h2&gt;
+
+&lt;h3 id=&quot;ordered-lists&quot;&gt;Ordered Lists&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Item one
+    &lt;ol&gt;
+      &lt;li&gt;sub item one&lt;/li&gt;
+      &lt;li&gt;sub item two&lt;/li&gt;
+      &lt;li&gt;sub item three&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Item two&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;unordered-lists&quot;&gt;Unordered Lists&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Item one&lt;/li&gt;
+  &lt;li&gt;Item two&lt;/li&gt;
+  &lt;li&gt;Item three&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Header1&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Header2&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Header3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Foot1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Foot2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Foot3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;code-snippets&quot;&gt;Code Snippets&lt;/h2&gt;
+
+&lt;p&gt;Syntax highlighting via Pygments&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-240px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Non Pygments code example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&quot;awesome&quot;&amp;gt;
+    &amp;lt;p&amp;gt;This is great isn&#39;t it?&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;buttons&quot;&gt;Buttons&lt;/h2&gt;
+
+&lt;p&gt;Make any link standout more when applying the &lt;code&gt;.btn&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;#&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Success Button&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Primary Button&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;Success Button&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-warning&quot;&gt;Warning Button&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot;&gt;Danger Button&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot;&gt;Info Button&lt;/a&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/sample-post/&quot;&gt;Sample Post&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://localhost:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on March 10, 2011.&lt;/p&gt;</content>
+</entry>
+
+</feed>

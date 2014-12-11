@@ -1,0 +1,23 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+<link rel="stylesheet" href="{{ site.url }}/assets/css/home.css">
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>    
+</head>
+
+<body id="page" {% if page.image.feature %}class="feature"{% endif %}>
+
+{% include browser-upgrade.html %}
+{% include navigation.html %}
+<div class="entry-header">
+	<h1 class="brand-heading">Tyler Ehrlich</h1>
+	<p class="intro-text">Graduate student at <a href="http://www.uga.edu">The University </br> of Georgia</a> studying <a href="http://music.uga.music.edu">conducting <br> and music education.</a></p>
+</div>
+{% include scripts.html %}          
+
+</body>
+</html>
