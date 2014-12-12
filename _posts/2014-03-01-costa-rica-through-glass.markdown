@@ -51,14 +51,14 @@ Here are some images I took through Glass while in Costa Rica and Panama.
 
 <center><div class="flexslider">
 <ul class="slides img-rounded">
-  <li><img src="img/costarica/1.jpg" alt=""><p class="flex-caption">Clarinet sectionals before we leave.</p></li>
-  <li><img src="img/costarica/3.jpg" alt=""><p class="flex-caption">Rehearsals led by CJT.</p></li>
-  <li><img src="img/costarica/3b.jpg" alt=""><p class="flex-caption">Jonathan looking skeptical of Glass.</p></li> 
-  <li><img src="img/costarica/3a.jpg" alt=""><p class="flex-caption">Simrita and Clara on the bus driving through the countryside.</p></li>
-  <li><img src="img/costarica/4.jpg" alt=""><p class="flex-caption">Bassoons warming up before our opening concert.</p></li>
-  <li><img src="img/costarica/5.jpg" alt=""><p class="flex-caption">Performing Gandolfi's <i>Vientos y Tangos.</i></p></li>
-  <li><img src="img/costarica/2.jpg" alt=""><p class="flex-caption">The clarinet section!</p></li>
-  <li><img src="img/costarica/6.jpg" alt=""><p class="flex-caption">The saxophones!</p></li>
-  <li><img src="img/costarica/9.jpg" alt=""><p class="flex-caption">Our final conducting masterclass in Panama.</p></li>
+  <li><img src="/images/costarica/1.jpg" alt=""><p class="flex-caption">Clarinet sectionals before we leave.</p></li>
+  <li><img src="/images/costarica/3.jpg" alt=""><p class="flex-caption">Rehearsals led by CJT.</p></li>
+  <li><img src="/images/costarica/3b.jpg" alt=""><p class="flex-caption">Jonathan looking skeptical of Glass.</p></li> 
+  <li><img src="/images/costarica/3a.jpg" alt=""><p class="flex-caption">Simrita and Clara on the bus driving through the countryside.</p></li>
+  <li><img src="/images/costarica/4.jpg" alt=""><p class="flex-caption">Bassoons warming up before our opening concert.</p></li>
+  <li><img src="/images/costarica/5.jpg" alt=""><p class="flex-caption">Performing Gandolfi's <i>Vientos y Tangos.</i></p></li>
+  <li><img src="/images/costarica/2.jpg" alt=""><p class="flex-caption">The clarinet section!</p></li>
+  <li><img src="/images/costarica/6.jpg" alt=""><p class="flex-caption">The saxophones!</p></li>
+  <li><img src="/images/costarica/9.jpg" alt=""><p class="flex-caption">Our final conducting masterclass in Panama.</p></li>
 </ul>
 </div></center>

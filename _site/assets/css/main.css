@@ -299,12 +299,8 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: #8e0000;
-}
-
 a:hover {
-  color: #000000;
+  color: white;
 }
 
 a:focus {

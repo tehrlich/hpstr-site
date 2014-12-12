@@ -5,7 +5,7 @@ date:   2013-10-22
 categories: errata
 ---
 Here is an errata list for the MTI version of "The 25th Annual Putnam County Spelling Bee."
-<table class = "table table-striped">
+<table>
 	<thead>
 		<th>Part or Score</th>
 		<th>Song Number, Measure</th>

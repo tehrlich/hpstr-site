@@ -64,7 +64,7 @@ Any user with Glass can navigate to this page and install the score to <i>Armeni
 
 One clear limitation of Glass is the screen size. To combat this, Dr. Turner and I discussed the idea of a salient score that contains only the information necessary to conduct a work. As each conductor's needs are different, each individual would likely need to create his or her own salient score. This would allow the scores to be as minimalistic as possible. Below is one possible salient score of the opening of <i>Gazebo Dances</i>.
 
-<center><img src="img/salient.png" alt="Salient" style="width: 600px;"/></center>
+<center><img src="/images/salient.png" alt="Salient" style="width: 600px;"/></center>
 
 This score only contains time changes and other landmarks that are necessary to conduct the work. If a salient score is used in rehearsal, a full score is necessary to have nearby for reference.
 

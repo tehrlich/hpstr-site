@@ -12,7 +12,10 @@ There are two Android applications that are necessary to make this task possible
 
 “Tina Time-lapse” is an Android application that automatically takes pictures at a user-defined time interval. Other settings allow the user to set the image's resolution, quality, and location where the photo is saved. After installing the application using ADB, the image is initially distorted: 
 
-<center>![distorted images](img/pictures.png "Tina time-lapse preview is not working.")</center>
+<center><img src="/images/pictures.png" alt="distortion" style="width: 600px;"/></center>
+
+
+
 
 This is a [known error](http://stackoverflow.com/questions/19235477/google-glass-preview-image-scrambled-with-new-xe10-release) with the release of EX10. After importing the source code into Eclipse, the addition of one line of Java fixes this problem:
 
