@@ -4,6 +4,8 @@ title:  "Gazebo Dances: Summary"
 date:   2013-10-08
 categories: gazebo
 published: false
+image:
+  feature: gazebo.png
 ---
 
 **Title:** "Gazebo Dances for Band"

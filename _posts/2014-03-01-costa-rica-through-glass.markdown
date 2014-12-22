@@ -3,6 +3,8 @@ layout: post
 title: "Costa Rica Through Glass"
 date:   2014-03-01
 categories: glass
+image:
+  feature: costaricafeature.jpg
 ---
 
 <script type="text/javascript">

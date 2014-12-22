@@ -3,6 +3,8 @@ layout: post
 title:  "Gazebo Dances: Rehearsal Schedule"
 date:   2013-10-07
 categories: gazebo
+image:
+  feature: gazebo.png
 ---
 
 I had the opportunity to rehearse and perform <i>Gazebo Dances for Band</i> with the Cornell University Winds during Fall 2013. Below is my rehearsal schedule and a reflection after each rehearsal. Generally speaking, Gazebo Dances was allotted 45 minutes of rehearsal time in the beginning of the semester, and 30 minutes closer to the concert (due to the addition of another work on the program).

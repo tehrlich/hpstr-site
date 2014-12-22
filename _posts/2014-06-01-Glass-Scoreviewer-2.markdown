@@ -3,10 +3,10 @@ layout: post
 title: "Score Viewer 2.0 for Glass"
 date:   2014-06-01
 categories: glass
+image:
+  feature: edward.jpg
+  credit: Andre, Cindi, and I all reading music notation from Glass. 
 ---
-
-<img src="/images/edward.jpg" alt="Kevin, Cindi, and I all reading music notation from Glass" class="img-polaroid mugshot">
-<center>*Andre, Cindi, and I all reading music notation from Glass.*</center>
 
 Last November, we finished the [first version](https://github.com/tehrlich/scoreviewer) of the music score viewing application. Built on the [Mirror API](https://developers.google.com/glass/develop/mirror/index), the app pushed a series of cards (what we had as the score of *Armenian Dances* by Aram Khachaturian) to Glass. Although functional, the app had a few problems.
 

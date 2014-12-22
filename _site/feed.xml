@@ -2,32 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Tyler Ehrlich</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://0.0.0.0:4000" />
-<updated>2014-12-12T01:18:01-05:00</updated>
-<id>http://0.0.0.0:4000/</id>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2014-12-21T23:59:45-05:00</updated>
+<id>/</id>
 <author>
   <name>Tyler Ehrlich</name>
-  <uri>http://0.0.0.0:4000/</uri>
+  <uri>/</uri>
   <email>tylerlehrlich@gmail.com</email>
 </author>
 
 
 <entry>
+  <title type="html"><![CDATA[Executing SQL Queries on Google Sheets]]></title>
+ <link rel="alternate" type="text/html" href="/sql-on-gdocs/" />
+  <id>/sql-on-gdocs</id>
+  <published>2014-12-15T00:00:00-05:00</published>
+  <updated>2014-12-15T00:00:00-05:00</updated>
+  <author>
+    <name>Tyler Ehrlich</name>
+    <uri></uri>
+    <email>tylerlehrlich@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;This semester, I was tasked with logging attendance for the &amp;gt; 430 member Redcoat Marching Band. Going for the parsimonious solution, I logged the data in a Google Spreadsheet and accepted excused absence requests via a Qualtrics form. (I would have used a Google Form, but I needed to accept attachments.) These forms would be emailed to me immediately, and Google Inbox would bundle them and have them appear once a day at 7AM. This allowed me to process them in one sitting per day.&lt;/p&gt;
+
+&lt;p&gt;At the end of the semester, I wanted to generate a report consisting of all of the students that would receive less than an A in the course sorted alphabetically. Using some URL trickery, it’s possible to execute this simple SQL query on a GSheet.&lt;/p&gt;
+
+&lt;p&gt;First, the query: selects all of the pertinent member information, find members that have poor attendance, and rank them by last name.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Using Chrome, there isn’t a need to convert the query into a web friendly URL; the browser will automatically add the necessary +, %20, etc.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;https://docs.google.com/spreadsheets/d/XXXXXXXXXX/gviz/tq?tqx=out:html&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;tq=YYYYYYYYYY&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;gid=ZZZZZZZZZZ&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;From here, replace the Xs with your spreadsheet ID, Ys with your query, and Zs with you gid. Both the ID and gid are accessible from the original spreadsheet URL.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/sql-on-gdocs/&quot;&gt;Executing SQL Queries on Google Sheets&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on December 15, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Score Viewer 2.0 for Glass]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/glass/Glass-Scoreviewer-2/" />
-  <id>http://0.0.0.0:4000/glass/Glass-Scoreviewer-2</id>
+ <link rel="alternate" type="text/html" href="/Glass-Scoreviewer-2/" />
+  <id>/Glass-Scoreviewer-2</id>
   <published>2014-06-01T00:00:00-04:00</published>
   <updated>2014-06-01T00:00:00-04:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;img src=&quot;/images/edward.jpg&quot; alt=&quot;Kevin, Cindi, and I all reading music notation from Glass&quot; class=&quot;img-polaroid mugshot&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;*Andre, Cindi, and I all reading music notation from Glass.*&lt;/center&gt;
-
-&lt;p&gt;Last November, we finished the &lt;a href=&quot;https://github.com/tehrlich/scoreviewer&quot;&gt;first version&lt;/a&gt; of the music score viewing application. Built on the &lt;a href=&quot;https://developers.google.com/glass/develop/mirror/index&quot;&gt;Mirror API&lt;/a&gt;, the app pushed a series of cards (what we had as the score of &lt;em&gt;Armenian Dances&lt;/em&gt; by Aram Khachaturian) to Glass. Although functional, the app had a few problems.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Last November, we finished the &lt;a href=&quot;https://github.com/tehrlich/scoreviewer&quot;&gt;first version&lt;/a&gt; of the music score viewing application. Built on the &lt;a href=&quot;https://developers.google.com/glass/develop/mirror/index&quot;&gt;Mirror API&lt;/a&gt;, the app pushed a series of cards (what we had as the score of &lt;em&gt;Armenian Dances&lt;/em&gt; by Aram Khachaturian) to Glass. Although functional, the app had a few problems.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -57,19 +83,19 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/tehrlich/gdkscoreviewer&quot;&gt;https://github.com/tehrlich/gdkscoreviewer&lt;/a&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/glass/Glass-Scoreviewer-2/&quot;&gt;Score Viewer 2.0 for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/Glass-Scoreviewer-2/&quot;&gt;Score Viewer 2.0 for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Costa Rica Through Glass]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/glass/costa-rica-through-glass/" />
-  <id>http://0.0.0.0:4000/glass/costa-rica-through-glass</id>
+ <link rel="alternate" type="text/html" href="/costa-rica-through-glass/" />
+  <id>/costa-rica-through-glass</id>
   <published>2014-03-01T00:00:00-05:00</published>
   <updated>2014-03-01T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;script type=&quot;text/javascript&quot;&gt;
@@ -130,19 +156,19 @@
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/center&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/glass/costa-rica-through-glass/&quot;&gt;Costa Rica Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/costa-rica-through-glass/&quot;&gt;Costa Rica Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Sweeney Todd: Errata]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/errata/sweeney-todd-errata/" />
-  <id>http://0.0.0.0:4000/errata/sweeney-todd-errata</id>
+ <link rel="alternate" type="text/html" href="/sweeney-todd-errata/" />
+  <id>/sweeney-todd-errata</id>
   <published>2014-02-08T00:00:00-05:00</published>
   <updated>2014-02-08T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Here is an errata list for the nine-piece orchestration of MTI’s “Sweeney Todd”, sorted by instrument. Thanks to the pit musicians for help in compiling this!&lt;/p&gt;
@@ -823,24 +849,22 @@
 
 &lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/tr&gt;&lt;/table&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/errata/sweeney-todd-errata/&quot;&gt;Sweeney Todd: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on February 08, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/sweeney-todd-errata/&quot;&gt;Sweeney Todd: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on February 08, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Score Viewer for Glass]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/honors/glass/scoreviewer/" />
-  <id>http://0.0.0.0:4000/honors/glass/scoreviewer</id>
+ <link rel="alternate" type="text/html" href="/scoreviewer/" />
+  <id>/scoreviewer</id>
   <published>2014-01-04T00:00:00-05:00</published>
   <updated>2014-01-04T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;i&gt;This was originally written for my thesis, available &lt;a href=&quot;thesis.pdf&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
-
-&lt;p&gt;After spending weeks looking into Android PDF libraries, the Mirror API seemed like a much more logical choice to use to deploy a musical score. Google supports several programming languages to use with the API: Go, Java, .NET, PHP, Python, and Ruby. Due to curiosity and a fondness for the language, I decided to use Python.&lt;/p&gt;
+  <content type="html">&lt;p&gt;After spending weeks looking into Android PDF libraries, the Mirror API seemed like a much more logical choice to use to deploy a musical score. Google supports several programming languages to use with the API: Go, Java, .NET, PHP, Python, and Ruby. Due to curiosity and a fondness for the language, I decided to use Python.&lt;/p&gt;
 
 &lt;p&gt;After downloading the quick start project, I created an application on Google App Engine. Since this application was designed to contain &lt;i&gt;Armenian Dances&lt;/i&gt; by Aram Khachaturian, the application was titled “CUWindsKach” and is accessible at: [http://cuwindskach.appspot.com]. After editing &lt;code&gt;client_secrets.json&lt;/code&gt;, generating a &lt;code&gt;session.secret&lt;/code&gt; file to store session cookies, and editing &lt;code&gt;app.yaml&lt;/code&gt; to include the name of the application, the Python application was ready to deploy.&lt;/p&gt;
 
@@ -906,24 +930,22 @@
 
 &lt;p&gt;The source code for this project can be found online at &lt;a href=&quot;https://github.com/tehrlich/scoreviewer&quot;&gt;https://github.com/tehrlich/scoreviewer&lt;/a&gt;. The application is also in production and accessible at &lt;a href=&quot;http://cuwindskach.appspot.com&quot;&gt;http://cuwindskach.appspot.com&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/honors/glass/scoreviewer/&quot;&gt;Score Viewer for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/scoreviewer/&quot;&gt;Score Viewer for Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Streaming Photos from Glass]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/honors/glass/photostreaming/" />
-  <id>http://0.0.0.0:4000/honors/glass/photostreaming</id>
+ <link rel="alternate" type="text/html" href="/photostreaming/" />
+  <id>/photostreaming</id>
   <published>2014-01-03T00:00:00-05:00</published>
   <updated>2014-01-03T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;i&gt;This was originally written for my thesis, available &lt;a href=&quot;thesis.pdf&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the original ideas for Dr. Turner’s research was to stream the conductor’s perspective from Glass. Due to the limited power of the device, it is currently not possible to live stream without at least a half of a second of latency. To combat this problem, one idea was to take still images and show them to the audience.&lt;/p&gt;
+  <content type="html">&lt;p&gt;One of the original ideas for Dr. Turner’s research was to stream the conductor’s perspective from Glass. Due to the limited power of the device, it is currently not possible to live stream without at least a half of a second of latency. To combat this problem, one idea was to take still images and show them to the audience.&lt;/p&gt;
 
 &lt;p&gt;There are two Android applications that are necessary to make this task possible: &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.tina.time_lapse&quot;&gt;Tina Time-lapse&lt;/a&gt; by Wessel Rossing and &lt;a href=&quot;https://play.google.com/store/apps/details?id=lutey.FTPServer&quot;&gt;FTPServer&lt;/a&gt; by Andreas Liebig. Both of these must be sideloaded onto the device. After installing the applications onto a different rooted Android device, one must navigate to &lt;code&gt;/data/app/&lt;/code&gt; to find the corresponding APK files. Using ADB’s pull function, they can be transferred to a computer before using ADB to install them on Glass.&lt;/p&gt;
 
@@ -955,19 +977,19 @@
 
 &lt;p&gt;Wessel Rossing provided me the source code for  our research with Glass, but as it is not open source, it will not be posted it on Github. The source for “FTPServer” is also not available online, but no modification to the raw source code is necessary for it to work on Glass.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/honors/glass/photostreaming/&quot;&gt;Streaming Photos from Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/photostreaming/&quot;&gt;Streaming Photos from Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on January 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Gazebo Dances: Errata]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/gazebo/errata/gazebo-errata/" />
-  <id>http://0.0.0.0:4000/gazebo/errata/gazebo-errata</id>
+ <link rel="alternate" type="text/html" href="/gazebo-errata/" />
+  <id>/gazebo-errata</id>
   <published>2013-12-20T00:00:00-05:00</published>
   <updated>2013-12-20T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;table class=&quot;table table-striped&quot;&gt;
@@ -1063,19 +1085,19 @@
 	&lt;/tr&gt;
 &lt;/table&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/gazebo/errata/gazebo-errata/&quot;&gt;Gazebo Dances: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on December 20, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/gazebo-errata/&quot;&gt;Gazebo Dances: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on December 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Sweeney Todd Through Glass]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/glass/conducting/Sweeney-Todd-Through-Glass/" />
-  <id>http://0.0.0.0:4000/glass/conducting/Sweeney-Todd-Through-Glass</id>
+ <link rel="alternate" type="text/html" href="/Sweeney-Todd-Through-Glass/" />
+  <id>/Sweeney-Todd-Through-Glass</id>
   <published>2013-11-06T00:00:00-05:00</published>
   <updated>2013-11-06T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;i&gt;Reposted from the CU Winds Google Glass blog available &lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/2013/11/06/sweeney-todd-through-google-glass/&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
@@ -1089,7 +1111,7 @@
 &lt;p&gt;Here’s what you’re seeing:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;0:07: I &lt;strong&gt;quietly&lt;/strong&gt; breathe to have the players enter together, but it sounds quite loud on Glass.&lt;/p&gt;
+  &lt;p&gt;0:07: I quietly breathe to have the players enter together, but it sounds quite loud on Glass.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
@@ -1151,19 +1173,19 @@ around 2:10.&lt;/p&gt;
 
 &lt;p&gt;Although this is still a bit of effort, if I was wearing Glass constantly, it wouldn’t be. I wouldn’t need to set up any recording equipment, charge batteries, transfer files over USB (Glass automatically does this.) It would be a seamless way to audit rehearsals after the fact. As someone who is constantly critiquing his own conducting and rehearsal technique, I find this essential.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/glass/conducting/Sweeney-Todd-Through-Glass/&quot;&gt;Sweeney Todd Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/Sweeney-Todd-Through-Glass/&quot;&gt;Sweeney Todd Through Glass&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[BeatKeeper Version 1.0]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/honors/glass/BeatKeeper1/" />
-  <id>http://0.0.0.0:4000/honors/glass/BeatKeeper1</id>
+ <link rel="alternate" type="text/html" href="/BeatKeeper/" />
+  <id>/BeatKeeper</id>
   <published>2013-11-06T00:00:00-05:00</published>
   <updated>2013-11-06T00:00:00-05:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;i&gt;Reposted from the CU Winds Google Glass blog available &lt;a href=&quot;http://blogs.cornell.edu/cuwindsglass/2013/11/06/beatkeeper-version-1-0/&quot;&gt;here&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
@@ -1216,19 +1238,19 @@ around 2:10.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/tehrlich/BeatKeeper&quot;&gt;https://github.com/tehrlich/BeatKeeper&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/honors/glass/BeatKeeper1/&quot;&gt;BeatKeeper Version 1.0&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/BeatKeeper/&quot;&gt;BeatKeeper Version 1.0&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on November 06, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Spelling Bee: Errata]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/errata/spelling-bee-errata/" />
-  <id>http://0.0.0.0:4000/errata/spelling-bee-errata</id>
+ <link rel="alternate" type="text/html" href="/spelling-bee-errata/" />
+  <id>/spelling-bee-errata</id>
   <published>2013-10-22T00:00:00-04:00</published>
   <updated>2013-10-22T00:00:00-04:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Here is an errata list for the MTI version of “The 25th Annual Putnam County Spelling Bee.”&lt;/p&gt;
@@ -1275,19 +1297,19 @@ around 2:10.&lt;/p&gt;
 	&lt;/tr&gt;
 &lt;/table&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/errata/spelling-bee-errata/&quot;&gt;Spelling Bee: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/spelling-bee-errata/&quot;&gt;Spelling Bee: Errata&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Gazebo Dances: Rehearsal Schedule]]></title>
- <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/gazebo/gazebo-plan/" />
-  <id>http://0.0.0.0:4000/gazebo/gazebo-plan</id>
+ <link rel="alternate" type="text/html" href="/gazebo-plan/" />
+  <id>/gazebo-plan</id>
   <published>2013-10-07T00:00:00-04:00</published>
   <updated>2013-10-07T00:00:00-04:00</updated>
   <author>
     <name>Tyler Ehrlich</name>
-    <uri>http://0.0.0.0:4000</uri>
+    <uri></uri>
     <email>tylerlehrlich@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I had the opportunity to rehearse and perform &lt;i&gt;Gazebo Dances for Band&lt;/i&gt; with the Cornell University Winds during Fall 2013. Below is my rehearsal schedule and a reflection after each rehearsal. Generally speaking, Gazebo Dances was allotted 45 minutes of rehearsal time in the beginning of the semester, and 30 minutes closer to the concert (due to the addition of another work on the program).&lt;/p&gt;
@@ -1372,7 +1394,7 @@ around 2:10.&lt;/p&gt;
 &lt;b&gt;Plan:&lt;/b&gt; As this is the final rehearsal, I want to run the work and address balance and blend in Bailey Hall, where it will be performed.&lt;br /&gt;
 &lt;b&gt;Reflection:&lt;/b&gt; Although I wanted to stop and address quite a few passages, I knew that I had only a brief amount of time. As such, I only made essential comments. I reminded everyone that crispness was quite important; the sound in Bailey is considerably more live and resonant than in our rehearsal room (Lincoln B20). In the second movement, section solis were too quiet. I had everyone play more soloistically when they had the melody. In the final movement, everyone still wanted to rush the end considerably. I asked them to write “don’t rush” at the final statement of the melody (m. 152). After this, I thanked everyone for a wonderful rehearsal process and told them how much I look forward to the concert. &lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/gazebo/gazebo-plan/&quot;&gt;Gazebo Dances: Rehearsal Schedule&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 07, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/gazebo-plan/&quot;&gt;Gazebo Dances: Rehearsal Schedule&lt;/a&gt; was originally published by Tyler Ehrlich at &lt;a href=&quot;&quot;&gt;Tyler Ehrlich&lt;/a&gt; on October 07, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>

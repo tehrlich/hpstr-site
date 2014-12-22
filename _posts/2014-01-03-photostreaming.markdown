@@ -2,9 +2,10 @@
 layout: post
 title: "Streaming Photos from Glass"
 date:   2014-01-03
-categories: honors glass
+categories: glass
+image:
+   feature: pictures.png
 ---
-<i>This was originally written for my thesis, available [here](thesis.pdf).</i>
 
 One of the original ideas for Dr. Turner's research was to stream the conductor's perspective from Glass. Due to the limited power of the device, it is currently not possible to live stream without at least a half of a second of latency. To combat this problem, one idea was to take still images and show them to the audience.
 

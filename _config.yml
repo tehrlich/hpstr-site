@@ -10,10 +10,10 @@ url:              http://tylerehrlich.com
 owner:
   name:           Tyler Ehrlich
   avatar:         avatar.jpg
-  bio:            "Full-time grad student at UGA studying conducting, part-time tech geek. My passion is the intersection of the two."
+  bio:            "Conductor, educator, programmer."
   email:          tylerlehrlich@gmail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        tlehrlich
+  twitter:        
   facebook:       tehrlich
   github:         
   stackexchange:  
@@ -36,9 +36,9 @@ bing_verify:
 
 # Links to include in top navigation
 # For external links add external: true
-links:
-  - title: Media
-    url: /media
+#links:
+#  - title: Media
+#    url: /media
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
@@ -47,7 +47,7 @@ highlighter: pygments
 markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title/
+permalink:   /:title/
 
 # Amount of post to show on home page
 paginate: 5

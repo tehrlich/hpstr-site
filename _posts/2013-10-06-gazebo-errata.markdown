@@ -3,6 +3,8 @@ layout: post
 title: "Gazebo Dances: Errata"
 date:   2013-12-20
 categories: gazebo errata
+image:
+  feature: gazebo.png
 ---
 <table class = "table table-striped">
 	<thead>

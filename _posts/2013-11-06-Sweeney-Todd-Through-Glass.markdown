@@ -3,6 +3,8 @@ layout: post
 title: "Sweeney Todd Through Glass"
 date:   2013-11-06
 categories: glass conducting
+image:
+  feature: sweeneyscore.png
 ---
 <i>Reposted from the CU Winds Google Glass blog available <a href="http://blogs.cornell.edu/cuwindsglass/2013/11/06/sweeney-todd-through-google-glass/">here</a>.</i>
 
@@ -15,7 +17,7 @@ First check out the video:
 
 Here's what you're seeing:
 
->0:07: I <strong>quietly</strong> breathe to have the players enter together, but it sounds quite loud on Glass.
+>0:07: I quietly breathe to have the players enter together, but it sounds quite loud on Glass.
 
 >0:23: I gesture and whisper to the pianist to continue holding that organ chord.
 

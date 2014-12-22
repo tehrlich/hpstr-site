@@ -2,10 +2,10 @@
 layout: post
 title: "Score Viewer for Glass"
 date:   2014-01-04
-categories: honors glass
+categories: glass
+image:
+   feature: salient.png
 ---
-
-<i>This was originally written for my thesis, available [here](thesis.pdf).</i>
 
 After spending weeks looking into Android PDF libraries, the Mirror API seemed like a much more logical choice to use to deploy a musical score. Google supports several programming languages to use with the API: Go, Java, .NET, PHP, Python, and Ruby. Due to curiosity and a fondness for the language, I decided to use Python.
 

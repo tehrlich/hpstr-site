@@ -3,6 +3,8 @@ layout: post
 title: "Sweeney Todd: Errata"
 date:   2014-02-08
 categories: errata
+image:
+  feature: sweeneyscore.png
 ---
 Here is an errata list for the nine-piece orchestration of MTI's "Sweeney Todd", sorted by instrument. Thanks to the pit musicians for help in compiling this!
 

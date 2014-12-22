@@ -1,98 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://0.0.0.0:4000</loc>
+        <loc></loc>
     </url>
     
     
     <url>
-        <loc>http://0.0.0.0:4000/404.html</loc>
+        <loc>/404.html</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/bio/</loc>
+        <loc>/bio/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/feed.xml</loc>
+        <loc>/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/index.html</loc>
+        <loc>/index.html</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/index2.html</loc>
+        <loc>/index2.html</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/media/</loc>
+        <loc>/media/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/musicals/</loc>
+        <loc>/musicals/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/posts/</loc>
+        <loc>/posts/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/sitemap.xml</loc>
+        <loc>/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/tags/</loc>
+        <loc>/tags/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/theme-setup/</loc>
+        <loc>/theme-setup/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/page2/index.html</loc>
+        <loc>/page2/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>/page3/index.html</loc>
     </url>
     
 
     
     <url>
-        <loc>http://0.0.0.0:4000/glass/Glass-Scoreviewer-2/</loc>
+        <loc>/sql-on-gdocs/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/glass/costa-rica-through-glass/</loc>
+        <loc>/Glass-Scoreviewer-2/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/errata/sweeney-todd-errata/</loc>
+        <loc>/costa-rica-through-glass/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/honors/glass/scoreviewer/</loc>
+        <loc>/sweeney-todd-errata/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/honors/glass/photostreaming/</loc>
+        <loc>/scoreviewer/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/gazebo/errata/gazebo-errata/</loc>
+        <loc>/photostreaming/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/glass/conducting/Sweeney-Todd-Through-Glass/</loc>
+        <loc>/gazebo-errata/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/honors/glass/BeatKeeper1/</loc>
+        <loc>/Sweeney-Todd-Through-Glass/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/errata/spelling-bee-errata/</loc>
+        <loc>/BeatKeeper/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/gazebo/gazebo-plan/</loc>
+        <loc>/spelling-bee-errata/</loc>
+    </url>
+    
+    <url>
+        <loc>/gazebo-plan/</loc>
     </url>
     
 </urlset>
