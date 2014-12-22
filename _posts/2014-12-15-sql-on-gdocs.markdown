@@ -27,4 +27,4 @@ https://docs.google.com/spreadsheets/d/XXXXXXXXXX/gviz/tq?tqx=out:html&tq=YYYYYY
 
 {% endhighlight %}
 
-From here, replace the Xs with your spreadsheet ID, Ys with your query, and Zs with you gid. Both the ID and gid are accessible from the original spreadsheet URL.
+From here, replace the Xs with your spreadsheet ID, Ys with your query, and Zs with your gid. Both the ID and gid are accessible from the original spreadsheet URL.
