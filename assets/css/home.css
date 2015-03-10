@@ -1,6 +1,6 @@
 html { 
   /*background: url(https://www.dropbox.com/s/l9d0qoew1yr7242/conductor.jpg?dl=1) no-repeat center center fixed; */
-  background: url(/images/conductor2.jpg) no-repeat center center fixed;
+  background: url(/images/conductor3.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,24 +16,25 @@ body {
     font-weight: 700;
     font-family: 'Raleway', sans-serif;
     letter-spacing: -2px;
-    color: rgb(221, 221, 221);
+    color: rgb(47, 47, 47);
     background: transparent;
     margin-top:250px;
     margin-left: 25px;
+    text-shadow: 0px 2px 3px #555;
 }
 
 .intro-text {
     font-size: 30px;
     font-weight: 500;
-    opacity: 0.7;
+    opacity: 0.8;
     margin-top:-25px;
     margin-left: 10px;
     background: transparent;
     margin-left: 30px;
-    color: white;
+    color: black;
 }
 
 
 a:hover {
-  color: white;
+  color: black;
 }
