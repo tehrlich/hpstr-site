@@ -140,7 +140,7 @@
 
 <p>Here is the form that serves the image to the backend:</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
 	  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;operation&quot;</span> <span class="na">value=</span><span class="s">&quot;insertItem&quot;</span><span class="nt">&gt;</span>
 	  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;message&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
 	  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;imageUrl&quot;</span> <span class="na">value=</span><span class="s">&quot;/static/images/1.jpg&quot;</span><span class="nt">&gt;</span>
@@ -154,7 +154,7 @@
 
 <p>Here is the backend Python code that processes the HTML form.</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">_insert_item</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">_insert_item</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot;Insert a timeline item.&quot;&quot;&quot;</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Inserting timeline item&#39;</span><span class="p">)</span>
 <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>

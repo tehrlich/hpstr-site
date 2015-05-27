@@ -136,13 +136,13 @@
 
 <p>There are two Android applications that are necessary to make this task possible: <a href="https://play.google.com/store/apps/details?id=com.tina.time_lapse">Tina Time-lapse</a> by Wessel Rossing and <a href="https://play.google.com/store/apps/details?id=lutey.FTPServer">FTPServer</a> by Andreas Liebig. Both of these must be sideloaded onto the device. After installing the applications onto a different rooted Android device, one must navigate to <code>/data/app/</code> to find the corresponding APK files. Using ADB’s pull function, they can be transferred to a computer before using ADB to install them on Glass.</p>
 
-<p>“Tina Time-lapse” is an Android application that automatically takes pictures at a user-defined time interval. Other settings allow the user to set the image’s resolution, quality, and location where the photo is saved. After installing the application using ADB, the image is initially distorted: </p>
+<p>“Tina Time-lapse” is an Android application that automatically takes pictures at a user-defined time interval. Other settings allow the user to set the image’s resolution, quality, and location where the photo is saved. After installing the application using ADB, the image is initially distorted:</p>
 
 <center><img src="/images/pictures.png" alt="distortion" style="width: 600px;" /></center>
 
 <p>This is a <a href="http://stackoverflow.com/questions/19235477/google-glass-preview-image-scrambled-with-new-xe10-release">known error</a> with the release of EX10. After importing the source code into Eclipse, the addition of one line of Java fixes this problem:</p>
 
-<div class="highlight"><pre><code class="java"><span class="n">parameters</span><span class="o">.</span><span class="na">setPreviewFpsRange</span><span class="o">(</span><span class="mi">30000</span><span class="o">,</span> <span class="mi">30000</span><span class="o">);</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">parameters</span><span class="o">.</span><span class="na">setPreviewFpsRange</span><span class="o">(</span><span class="mi">30000</span><span class="o">,</span> <span class="mi">30000</span><span class="o">);</span></code></pre></div>
 
 <p>This is added after the Camera is initialized, in the <code>Recorder</code> class in the package <code>nl.nanatech.b.tinatimelapse</code>. To begin taking photos, one simply selects the second icon: the camera.</p>
 
