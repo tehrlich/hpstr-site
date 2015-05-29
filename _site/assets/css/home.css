@@ -32,9 +32,11 @@ body {
     background: transparent;
     margin-left: 30px;
     color: white;
+    width: 450px;
 }
-
-
+@media (max-width:500px){.intro-text{
+    width:350px;
+    }}
 a:hover {
   color: white;
 }
