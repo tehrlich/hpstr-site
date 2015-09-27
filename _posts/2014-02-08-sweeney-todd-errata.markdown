@@ -8,7 +8,7 @@ image:
 ---
 Here is an errata list for the nine-piece orchestration of MTI's "Sweeney Todd", sorted by instrument. Thanks to the pit musicians for help in compiling this!
 
-Other errata are listed [here](sweeneyerrata.pdf) and at Brian Demaris's [blog](http://operamtblog.blogspot.com/2013/02/sweeney-todd-errata-alternate-9-piece.html). There may be overlap from these two sources and the list below. 
+Other errata are listed [here](sweeneyerrata.pdf) and at Brian Demaris's [blog](http://operamterrata.blogspot.com/2013/02/sweeney-todd-errata-alternate-9-piece.html). There may be overlap from these two sources and the list below. 
 
 Finally, some markings below are not necessarily mistakes, but either thoughtful musical decisions (such as mute choice, or percussion instrument choice when none is provided) or markings to match the full orchestration score that is shipped with the materials. There are still many large discrepancies between the piano/conductor score provided and the individual parts. A handwritten full score of the reduced orchestration is also included in the rental set, but it lacks lyrics and is too illegible to be conducted from.
 
@@ -75,7 +75,7 @@ Finally, some markings below are not necessarily mistakes, but either thoughtful
 	<tr>
 		<td>10B, m. 3</td>
 		<td>Tremolo between A&#9837; and B&#9837; (not A&#9837; and C&#9838;.)</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>12B, m. 5</td>
 		<td>The slurs should be the same as m. 3.</td>
@@ -147,7 +147,7 @@ Finally, some markings below are not necessarily mistakes, but either thoughtful
 	<tr>
 		<td>26, m. 38-39</td>
 		<td>These two measures are missing; repeat.</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>28, m. 69</td>
 		<td>Pizzicato missing on second eighth note.</td>
