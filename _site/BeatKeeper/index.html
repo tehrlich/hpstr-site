@@ -16,14 +16,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="BeatKeeper Version 1.0">
 <meta property="og:description" content="Personal website of Tyler Ehrlich.">
-<meta property="og:url" content="http://tylerehrlich.com/BeatKeeper/">
+<meta property="og:url" content="http://tylerehrlich.com/beatkeeper/">
 <meta property="og:site_name" content="Tyler Ehrlich">
 
 
 
 
 
-<link rel="canonical" href="http://tylerehrlich.com/BeatKeeper/">
+<link rel="canonical" href="http://tylerehrlich.com/beatkeeper/">
 <link href="http://tylerehrlich.com/feed.xml" type="application/atom+xml" rel="alternate" title="Tyler Ehrlich Feed">
 
 
@@ -122,7 +122,7 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://tylerehrlich.com/BeatKeeper/" rel="bookmark" title="BeatKeeper Version 1.0">BeatKeeper Version 1.0</a></h1>
+          <h1 class="entry-title"><a href="http://tylerehrlich.com/beatkeeper/" rel="bookmark" title="BeatKeeper Version 1.0">BeatKeeper Version 1.0</a></h1>
         
         <h2>November 06, 2013</h2>
         
@@ -155,7 +155,7 @@
 
 <p>Here is the source for the <code>GestureDetector</code>.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScroll</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">e1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">e2</span><span class="o">,</span> <span class="kt">float</span> <span class="n">distanceX</span><span class="o">,</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onScroll</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">e1</span><span class="o">,</span> <span class="n">MotionEvent</span> <span class="n">e2</span><span class="o">,</span> <span class="kt">float</span> <span class="n">distanceX</span><span class="o">,</span>
 					   <span class="kt">float</span> <span class="n">distanceY</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">&quot;Gesture Example&quot;</span><span class="o">,</span> <span class="s">&quot;onScroll: distanceX:&quot;</span> <span class="o">+</span> <span class="n">distanceX</span> <span class="o">+</span>
     <span class="s">&quot; distanceY:&quot;</span> <span class="o">+</span> <span class="n">distanceY</span><span class="o">);</span>
@@ -169,7 +169,7 @@
     	<span class="n">TextView</span> <span class="n">bpmText</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bps</span><span class="o">);</span>
         <span class="n">bpmText</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">+</span><span class="n">bpm</span><span class="o">);</span>
         <span class="n">metroTask</span><span class="o">.</span><span class="na">setBpm</span><span class="o">(</span><span class="n">bpm</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span></code></pre></div>
+    <span class="o">}</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span></code></pre></figure>
 
 <p><strong><span style="line-height: 1.714285714; font-size: 1rem;">So what&#8217;s next for BeatKeeper for Glass?</span></strong></p>
 
@@ -181,7 +181,7 @@
 
       <footer class="entry-meta">
         <span class="entry-tags"></span>
-        <!--<span><a href="http://tylerehrlich.com/BeatKeeper/" rel="bookmark" title="BeatKeeper Version 1.0">BeatKeeper Version 1.0</a> was published on <span class="entry-date date published updated"><time datetime="2013-11-06T00:00:00-05:00">November 06, 2013</time></span></span>
+        <!--<span><a href="http://tylerehrlich.com/beatkeeper/" rel="bookmark" title="BeatKeeper Version 1.0">BeatKeeper Version 1.0</a> was published on <span class="entry-date date published updated"><time datetime="2013-11-06T00:00:00-05:00">November 06, 2013</time></span></span>
         
         <span class="author vcard"><span class="fn"><a href="http://tylerehrlich.com/about/" title="About Tyler Ehrlich">Tyler Ehrlich</a></span></span>-->
         
@@ -200,6 +200,18 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://tylerehrlich.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://tylerehrlich.com/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47023641-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
 
 

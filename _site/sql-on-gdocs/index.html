@@ -142,11 +142,11 @@
 
 <p>First, the query: selects all of the pertinent member information, find members that have poor attendance, and rank them by last name.</p>
 
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">A</span><span class="p">,</span> <span class="k">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="k">G</span><span class="p">,</span> <span class="n">H</span> <span class="k">WHERE</span> <span class="n">F</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">OR</span> <span class="k">G</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">OR</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">A</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">A</span><span class="p">,</span> <span class="k">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="k">G</span><span class="p">,</span> <span class="n">H</span> <span class="k">WHERE</span> <span class="n">F</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">OR</span> <span class="k">G</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">OR</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">A</span></code></pre></figure>
 
 <p>Using Chrome, there isn’t a need to convert the query into a web friendly URL; the browser will automatically add the necessary +, %20, etc.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html">https://docs.google.com/spreadsheets/d/XXXXXXXXXX/gviz/tq?tqx=out:html<span class="err">&amp;</span>tq=YYYYYYYYYY<span class="err">&amp;</span>gid=ZZZZZZZZZZ</code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://docs.google.com/spreadsheets/d/XXXXXXXXXX/gviz/tq?tqx=out:html<span class="err">&amp;</span>tq=YYYYYYYYYY<span class="err">&amp;</span>gid=ZZZZZZZZZZ</code></pre></figure>
 
 <p>From here, replace the Xs with your spreadsheet ID, Ys with your query, and Zs with your gid. Both the ID and gid are accessible from the original spreadsheet URL.</p>
 
@@ -171,6 +171,18 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://tylerehrlich.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://tylerehrlich.com/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47023641-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
 
 
